@@ -112,26 +112,26 @@ header {
 
 /* main ******************************************************/
 
+.main_content {
+    padding: 50vh 0;
+}
+
+.main_content:nth-child(1) {
+    background-color: #f5f5f5;
+}
+.main_content:nth-child(2) {
+    background-color: #ffffff;
+}
+.main_content:nth-child(3) {
+    background-color: #f5f5f5;
+}
+
 .main_content > div {
     margin: 0 auto;
     text-align: center;
     width: 80%;
     color: black;
 }
-
-.main_content:nth-child(1) {
-    background-color: #f5f5f5;
-    padding: 5vh 0;
-}
-.main_content:nth-child(2) {
-    background-color: #ffffff;
-    padding: 5vh 0;
-}
-.main_content:nth-child(3) {
-    background-color: #f5f5f5;
-    padding: 5vh 0;
-}
-
 
 
 /* about ******************************************************/
