@@ -25,7 +25,9 @@ a {
 
 
 
-/* header **************************************************/
+/**************************************************
+header 
+**************************************************/
 
 header {
     position: relative;
@@ -110,7 +112,9 @@ header {
 
 
 
-/* main ******************************************************/
+/*********************************************************
+main 
+ ******************************************************/
 
 .main_content {
     padding: 25vh 0;
@@ -128,14 +132,16 @@ header {
 
 .main_content > div {
     margin: 0 auto;
-    text-align: center;
+    /* text-align: center; */
     width: 80%;
     color: black;
 }
 
 .main_title {
     font-size: 3rem;
+    text-align: center;
 }
+
 
 
 /* about ******************************************************/
@@ -150,4 +156,38 @@ header {
     font-size: 2rem;
 }
 
-/* product ***************************************::*/
+
+
+/* product *****************************************************/
+
+
+
+.product_items {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-top: 10vh;
+}
+
+.product_item {
+    margin: 0 auto 30%;
+}
+
+.product_item > img {
+    width: 300px;
+    height: 300px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product_item_detail {
+    display: flex;
+    justify-content: space-between;
+    width: 98%;
+    margin: 20px auto 0;
+} 
+
+.product_item_detail > p {
+    font-size: 1.5rem;
+}
