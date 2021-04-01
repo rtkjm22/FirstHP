@@ -43,6 +43,7 @@ header {
     background-size: cover; */
     padding-top: 1px;
     background-color: #fcf8fc;
+    box-shadow: 0px 10px 10px -5px #b6b6b633;
 }
 
 .header_nav {
@@ -52,7 +53,7 @@ header {
     justify-content: space-between;
 }
 
-.logo {
+.header_logo {
     width: 150px;
     height: 150px;
     background-color: #a5a5a5;
@@ -60,31 +61,31 @@ header {
     cursor: pointer;
 }
 
-.logo:hover {
+.header_logo:hover {
     background-color: #454f72;
     transition: .7s;
 }
 
 
-.main_nav {
+.header_nav_items {
     display: flex;
     margin: 0;
     padding: 0;
 }
 
-.main_nav > li {
+.header_nav_items > li {
     margin-left: 50px;
     position: relative;
 }
 
-.main_nav_item {
+.header_nav_item {
     width: 7vw;
     height: 7vh;
     text-align: center;
     margin-top: 20%;
 }
 
-.main_nav_item > a {
+.header_nav_item > a {
     display: block;
     font-size: 2rem;
     background-color: #a5a5a5;
@@ -94,12 +95,12 @@ header {
     border-radius: 5px;
 }
 
-.main_nav_item > a:hover {
+.header_nav_item > a:hover {
     background-color: rgb(97, 97, 97);
     transition: .7s;
 }
 
-.cp {
+.header_cp {
     position: absolute;
     top: 60%;
     left: 50%;
@@ -108,7 +109,7 @@ header {
     font-size: 2.5rem;
 }
 
-.cp > h1 {
+.header_cp > h1 {
     white-space: nowrap;
 }
 
@@ -121,8 +122,11 @@ header {
 main 
  ******************************************************/
 
+
 .main_content {
     padding: 25vh 0;
+    position: relative;
+    box-shadow: 1px 1px 5px 5px #f2f2f2 inset;
 }
 
 .main_content:nth-child(2) {
@@ -140,6 +144,13 @@ main
     font-size: 3rem;
     text-align: center;
 }
+
+.main_intro {
+    padding-top: 10%;
+    font-size: 2rem;
+    text-align: center;
+}
+
 
 
 
@@ -167,15 +178,24 @@ main
 
 /* product *****************************************************/
 
+.product_container {
+    width: 100%;
+}
+
 .product_items {
     display: grid;
     gap: 5%;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin-top: 10vh;
+    width: 100%;
+    overflow: auto;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgb(0, 0, 0, 0.2);
 }
 
 .product_item {
-    margin: 10% auto 30%;
+    margin: 10% auto 10%;
     padding: 7%;
     border-radius: 5px;
 }
@@ -193,21 +213,20 @@ main
     border-radius: 5px;
 }
 
-.product_item_detail {
+.product_item_content {
     display: flex;
     justify-content: space-between;
     width: 98%;
     margin: 20px auto 0;
 } 
 
-.product_item_detail > p {
+.product_item_content > p {
     font-size: 1.5rem;
 }
 
 
 
 /* news ******************************************************************/
-
 
 
 
