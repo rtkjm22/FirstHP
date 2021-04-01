@@ -20,18 +20,18 @@ a {
     text-decoration: none;
 }
 
-.container {
+.top_container {
     background-color: #f5f5f5;
 }
 
 
 
+/******************************************************************************************************************************************************************
+******************************************************************************************************************************************************************
+    header
+******************************************************************************************************************************************************************
+******************************************************************************************************************************************************************/
 
-
-
-/**************************************************
-header 
-**************************************************/
 
 header {
     position: relative;
@@ -46,14 +46,14 @@ header {
     box-shadow: 0px 10px 10px -5px #b6b6b633;
 }
 
-.header_nav {
+.top_header_nav {
     display: flex;
     width: 80%;
     margin: 5vh auto 0;
     justify-content: space-between;
 }
 
-.header_logo {
+.top_header_logo {
     width: 150px;
     height: 150px;
     background-color: #a5a5a5;
@@ -61,31 +61,31 @@ header {
     cursor: pointer;
 }
 
-.header_logo:hover {
+.top_header_logo:hover {
     background-color: #454f72;
     transition: .7s;
 }
 
 
-.header_nav_items {
+.top_header_nav_items {
     display: flex;
     margin: 0;
     padding: 0;
 }
 
-.header_nav_items > li {
+.top_header_nav_items > li {
     margin-left: 50px;
     position: relative;
 }
 
-.header_nav_item {
+.top_header_nav_item {
     width: 7vw;
     height: 7vh;
     text-align: center;
     margin-top: 20%;
 }
 
-.header_nav_item > a {
+.top_header_nav_item > a {
     display: block;
     font-size: 2rem;
     background-color: #a5a5a5;
@@ -95,12 +95,12 @@ header {
     border-radius: 5px;
 }
 
-.header_nav_item > a:hover {
+.top_header_nav_item > a:hover {
     background-color: rgb(97, 97, 97);
     transition: .7s;
 }
 
-.header_cp {
+.top_header_cp {
     position: absolute;
     top: 60%;
     left: 50%;
@@ -109,7 +109,7 @@ header {
     font-size: 2.5rem;
 }
 
-.header_cp > h1 {
+.top_header_cp > h1 {
     white-space: nowrap;
 }
 
@@ -118,34 +118,37 @@ header {
 
 
 
-/*********************************************************
-main 
- ******************************************************/
+/******************************************************************************************************************************************************************
+******************************************************************************************************************************************************************
+    main
+******************************************************************************************************************************************************************
+******************************************************************************************************************************************************************/
 
 
-.main_content {
+
+.top_main_content {
     padding: 25vh 0;
     position: relative;
     box-shadow: 1px 1px 5px 5px #f2f2f2 inset;
 }
 
-.main_content:nth-child(2) {
+.top_main_content:nth-child(2) {
     background-color: #f4fff4;
 }
 
-.main_content > div {
+.top_main_content > div {
     margin: 0 auto;
     /* text-align: center; */
     width: 80%;
     color: black;
 }
 
-.main_title {
+.top_main_title {
     font-size: 3rem;
     text-align: center;
 }
 
-.main_intro {
+.top_main_intro {
     padding-top: 10%;
     font-size: 2rem;
     text-align: center;
@@ -153,14 +156,16 @@ main
 
 
 
+/******************************************************************************************************************************************************************
+    about
+******************************************************************************************************************************************************************/
 
-/* about ******************************************************/
 
-.about_container {
+.top_about_container {
     text-align: center;
 }
 
-.about_container > p {
+.top_about_container > p {
     width: 50%;
     margin: 10% auto 0;
     font-size: 2rem;
@@ -169,20 +174,23 @@ main
     text-indent: 1rem;
 }
 
-.about_container > p > span {
+.top_about_container > p > span {
     font-weight: bold;
     font-size: 2.5rem;
 }
 
 
 
-/* product *****************************************************/
+/******************************************************************************************************************************************************************
+    product
+******************************************************************************************************************************************************************/
 
-.product_container {
+
+.top_product_container {
     width: 100%;
 }
 
-.product_items {
+.top_product_items {
     display: grid;
     gap: 5%;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -194,18 +202,18 @@ main
     box-shadow: 5px 5px 20px rgb(0, 0, 0, 0.2);
 }
 
-.product_item {
+.top_product_item {
     margin: 10% auto 10%;
     padding: 7%;
     border-radius: 5px;
 }
 
-.product_item:hover {
+.top_product_item:hover {
     background-color: #cbffcb;
     transition: .7s;
 }
 
-.product_item > img {
+.top_product_item > img {
     width: 300px;
     height: 300px;
     max-width: 100%;
@@ -213,20 +221,29 @@ main
     border-radius: 5px;
 }
 
-.product_item_content {
+.top_product_item_content {
     display: flex;
     justify-content: space-between;
     width: 98%;
     margin: 20px auto 0;
 } 
 
-.product_item_content > p {
+.top_product_item_content > p {
     font-size: 1.5rem;
 }
 
 
 
-/* news ******************************************************************/
+/******************************************************************************************************************************************************************
+    news
+******************************************************************************************************************************************************************/
+
+
+/******************************************************************************************************************************************************************
+******************************************************************************************************************************************************************
+    footer
+******************************************************************************************************************************************************************
+******************************************************************************************************************************************************************/
 
 
 
