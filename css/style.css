@@ -245,8 +245,8 @@ header {
     width: 100%;
     display: grid;
     margin-top: 10vh;
-    gap: 10%;
-    grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
+    gap: 1%;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     overflow: auto;
     background-color: #f5f5f5;
     border-radius: 10px;
@@ -263,8 +263,8 @@ header {
 }
 
 .top_news_item > img {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     max-width: 100%;
     object-fit: cover;
     border-radius: 5px;
@@ -278,11 +278,12 @@ header {
 
 .top_news_item_content > p {
     text-align: left;
+    word-break: break-all;
 }
 
 .top_news_title {
     font-size: 1.25rem;
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
 
