@@ -363,6 +363,10 @@ header {
     box-shadow: 5px 5px  20px #797979;
 }
 
+.footer_nav_item > a {
+    color: white;
+}
+
 .footer_nav_item:hover {
     background-color: #cccccc;
     transition: .7s;
@@ -373,9 +377,7 @@ header {
     transition: .7s;
 }
 
-.footer_nav_item > a {
-    color: white;
-}
+
 
 
 @media (min-width: 1000px) {
