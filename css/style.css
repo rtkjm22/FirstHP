@@ -322,10 +322,11 @@ header {
 
 .footer_nav_item {
     background-color: #999999;
-    font-size: 2rem;
+    font-size: 2vw;
     text-align: center;
     padding: 10px 0;
-    width: 10%;
+    margin: 0 10px;
+    width: 14vw;
     border-radius: 5px;
     box-shadow: 5px 5px  20px #797979;
 }
@@ -344,3 +345,9 @@ header {
     color: white;
 }
 
+
+@media (min-width: 1000px) {
+    .footer_nav_item {
+        font-size: 1.75rem;
+    }
+}
