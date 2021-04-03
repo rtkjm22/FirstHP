@@ -261,7 +261,8 @@ header {
 .top_news_item {
     display: flex;
     margin: 5vh;
-    border: black solid 1px;
+    box-shadow: 5px 5px  20px #d0d0d0;
+    border-radius: 5px;
     padding: 5%;
     max-height: 260px;
 }
