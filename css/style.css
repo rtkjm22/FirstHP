@@ -124,8 +124,6 @@ header {
 ******************************************************************************************************************************************************************
 ******************************************************************************************************************************************************************/
 
-
-
 .top_main_content {
     padding: 25vh 0;
     position: relative;
@@ -195,12 +193,11 @@ header {
     gap: 5%;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin-top: 10vh;
-    width: 100%;
     overflow: auto;
     background-color: #f5f5f5;
     border-radius: 10px;
     box-shadow: 5px 5px 20px rgb(0, 0, 0, 0.2);
-    padding: 5vh;
+    padding: 10vh;
 }
 
 .top_product_item {
@@ -238,6 +235,58 @@ header {
 /******************************************************************************************************************************************************************
     news
 ******************************************************************************************************************************************************************/
+
+.top_news_container {
+    width: 100%;
+    background-color: #cbffcb;
+}
+
+.top_news_items {
+    width: 100%;
+    display: grid;
+    margin-top: 10vh;
+    gap: 10%;
+    grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
+    overflow: auto;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgb(0, 0, 0, 0.2);
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+
+.top_news_item {
+    display: flex;
+    margin: 5vh;
+    border: black solid 1px;
+    padding: 5%;
+}
+
+.top_news_item > img {
+    width: 300px;
+    height: 300px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.top_news_item_content {
+    text-align: center;
+    padding: 5%;
+}
+
+.top_news_item_content > p {
+    text-align: left;
+}
+
+.top_news_title {
+    font-size: 1.25rem;
+    white-space: nowrap;
+}
+
+
+
 
 
 /******************************************************************************************************************************************************************
