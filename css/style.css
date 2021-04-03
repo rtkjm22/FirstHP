@@ -241,7 +241,6 @@ header {
 
 .top_news_container {
     width: 100%;
-    background-color: #cbffcb;
 }
 
 .top_news_items {
@@ -249,7 +248,7 @@ header {
     display: grid;
     margin-top: 10vh;
     gap: 1%;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
     overflow: auto;
     background-color: #f5f5f5;
     border-radius: 10px;
@@ -261,35 +260,50 @@ header {
 .top_news_item {
     display: flex;
     margin: 5vh;
+    margin-top: 2vh;
     box-shadow: 5px 5px  20px #d0d0d0;
     border-radius: 5px;
     padding: 5%;
-    max-height: 260px;
+    /* max-height: 260px; */
 }
 
 .top_news_item > img {
-    width: 200px;
-    height: 200px;
+    width: 15vw;
+    height: 15vw;
     max-width: 100%;
     object-fit: cover;
     border-radius: 5px;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .top_news_item_content {
     text-align: center;
-    padding: 5%;
-    overflow: auto;
+    padding: 0 5%;
+    width: 100%;
 }
 
-.top_news_item_content > p {
+.top_news_text {
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.top_news_text > p {
     text-align: left;
-    word-break: break-all;
+    margin: 0;
+    /* word-break: break-all; */
+    font-size: .80vw;
+}
+
+.top_news_text > p:nth-child(1) {
+    margin-top: 5px;
 }
 
 .top_news_title {
-    font-size: 1.25rem;
-    /* white-space: nowrap; */
+    font-size: 1.25vw;
+    /* margin-top: 0; */
+    white-space: nowrap;
 }
 
 
