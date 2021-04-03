@@ -2,7 +2,8 @@
 
 html {
     font-size: 14px;
-    font-family: 'Sawarabi Mincho', sans-serif;
+    font-family: 'Sawarabi Mincho', sans-serif;    
+    color: #554040;
 }
 
 body {
@@ -138,7 +139,6 @@ header {
     margin: 0 auto;
     /* text-align: center; */
     width: 80%;
-    color: black;
 }
 
 .top_main_title {
@@ -151,6 +151,7 @@ header {
     font-size: 2rem;
     text-align: center;
 }
+
 
 
 
@@ -179,6 +180,7 @@ header {
 
 
 
+
 /******************************************************************************************************************************************************************
     product
 ******************************************************************************************************************************************************************/
@@ -201,7 +203,7 @@ header {
 }
 
 .top_product_item {
-    margin: 10% auto 10%;
+    margin: 5% auto 5%;
     padding: 7%;
     border-radius: 5px;
 }
@@ -229,6 +231,7 @@ header {
 .top_product_item_content > p {
     font-size: 1.5rem;
 }
+
 
 
 
@@ -260,6 +263,7 @@ header {
     margin: 5vh;
     border: black solid 1px;
     padding: 5%;
+    max-height: 260px;
 }
 
 .top_news_item > img {
@@ -274,6 +278,7 @@ header {
 .top_news_item_content {
     text-align: center;
     padding: 5%;
+    overflow: auto;
 }
 
 .top_news_item_content > p {
@@ -288,13 +293,54 @@ header {
 
 
 
-
-
 /******************************************************************************************************************************************************************
 ******************************************************************************************************************************************************************
     footer
 ******************************************************************************************************************************************************************
 ******************************************************************************************************************************************************************/
 
+.footer_nav {
+    background-color: #999999;
+    height: 15vh;
+    position: relative;
+}
 
+.footer_nav > nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+}
+
+.footer_nav_items {
+    padding: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_nav_item {
+    background-color: #999999;
+    font-size: 2rem;
+    text-align: center;
+    padding: 10px 0;
+    width: 10%;
+    border-radius: 5px;
+    box-shadow: 5px 5px  20px #797979;
+}
+
+.footer_nav_item:hover {
+    background-color: #cccccc;
+    transition: .7s;
+}
+
+.footer_nav_item:hover a {
+    color: #313131;
+    transition: .7s;
+}
+
+.footer_nav_item > a {
+    color: white;
+}
 
