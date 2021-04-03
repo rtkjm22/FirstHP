@@ -146,13 +146,13 @@ header {
 }
 
 .top_main_title {
-    font-size: 3rem;
+    font-size: 4vw;
     text-align: center;
 }
 
 .top_main_intro {
     padding-top: 10%;
-    font-size: 2rem;
+    font-size: 2vw;
     text-align: center;
 }
 
@@ -171,15 +171,14 @@ header {
 .top_about_container > p {
     width: 50%;
     margin: 10% auto 0;
-    font-size: 2rem;
-    line-height: 4rem;
+    font-size: 2.5vw;
     text-align: left;
-    text-indent: 1rem;
+    text-indent: 1vw;
 }
 
 .top_about_container > p > span {
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 3vw;
 }
 
 
@@ -299,7 +298,7 @@ header {
 
 .top_news_text {
     display: -webkit-box;
-    -webkit-line-clamp: 7;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -308,7 +307,7 @@ header {
     text-align: left;
     margin: 0;
     /* word-break: break-all; */
-    font-size: .80vw;
+    font-size: 1.25vw;
 }
 
 .top_news_text > p:nth-child(1) {
@@ -319,6 +318,9 @@ header {
     font-size: 1.25vw;
     /* margin-top: 0; */
     white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
 }
 
 
@@ -387,6 +389,14 @@ header {
 
     .top_header_cp {
         font-size: 2.25rem;
+    }
+
+    .top_about_container > p {
+        font-size: 2vw;
+    }
+
+    .top_news_text > p {
+        font-size: 1vw;
     }
 
     .footer_nav_item {
