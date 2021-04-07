@@ -4,47 +4,46 @@
     
     window.addEventListener('DOMContentLoaded', function () {
 
-        //ページトップに戻る
-        //ボタンの表示
-        const to_top = document.querySelector('.send_to_top');
+            const header_nav_item_link = document.querySelectorAll('.header_nav_item_link');
+            const scroll_top = document.querySelector('.scroll_top');
 
-        // to_top.addEventListener('transitionrun', function () {
-        //     if (to_top.className !== 'view') {
-        //         to_top.style.visibility = 'hidden';
-        //     }
-        // });
-        
-        window.addEventListener('scroll', function () {
-            if (200 < window.scrollY) {
-                to_top.style.visibility = 'visible';
-                to_top.style.cursor = 'pointer';
-                to_top.classList.add('view');
-                // console.log(window.scrollY);
-            } else {
-                to_top.classList.remove('view');
-                to_top.style.cursor = 'default';
-            }
-        });
-
-        //スクロールでトップへ移動
-        to_top.addEventListener('click', function () {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
+            //スクロール検知
+            window.addEventListener('scroll', function () {
+                scroll_200(scroll_top);
+                for (let i = 0; i < header_nav_item_link.length; i++) {
+                    scroll_200(header_nav_item_link[i]);
+                }
             });
-        });
+
+            //200pxスクロールされたときの表示
+            function scroll_200(el) {
+                if (200 < window.scrollY) {
+                    el.style.visibility = 'visible';
+                    el.style.pointerEvents = 'auto';
+                    el.style.cursor = 'pointer';
+                    el.classList.add('view');
+                } else {
+                    el.style.cursor = 'default';
+                    el.style.pointerEvents = 'none';
+                    el.classList.remove('view');
+                }
+            }
+    
+            //scroll_topボタンでトップへ移動
+            scroll_top.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
 
 
-
-
-
-
-
-
-
-
-
-
+        {
+            //product
+            const test = localStorage.setItem('key', 'test');
+            const remove = localStorage.removeItem('key');
+            const item = localStorage.getItem('key');
+        }
 
     });
 }
