@@ -46,54 +46,23 @@
                 <div class="news_wrap">
                     <div class="news_items">
 
-                        <article>
-                            <div class="news_item">
-                                <div class="news_img">
-                                    <img src="/img/product_top.jpg" alt="">
+                        <template id="news_template">
+                            <article>
+                                <div class="news_item">
+                                    <div class="news_img">
+                                        <img class="news_img_img">
+                                    </div>
+                                    <p class="news_date"></p>
+                                    <h1 class="news_title"></h1>
+                                    <p class="news_caption"></p>
+                                    <p class="news_more">詳しく見る</p>
                                 </div>
-                                <p class="news_date">2020/03/04</p>
-                                <h1 class="news_title">美味しいパンケーキ</h1>
-                                <p class="news_caption">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur aspernatur fugit adipisci. Eveniet necessitatibus assumenda deleniti aliquam quibusdam. Deserunt officia labore, neque voluptatibus vel unde omnis quia excepturi amet enim?</p>
-                                <p class="more">詳しく見る</p>
-                            </div>
-                        </article>
-                        <article>
-                            <div class="news_item">
-                                <div class="news_img">
-                                    <img src="/img/product_top.jpg" alt="">
-                                </div>
-                                <p class="news_date">2020/03/04</p>
-                                <h1 class="news_title">美味しいパンケーキ</h1>
-                                <p class="news_caption">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur aspernatur fugit adipisci. Eveniet necessitatibus assumenda deleniti aliquam quibusdam. Deserunt officia labore, neque voluptatibus vel unde omnis quia excepturi amet enim?</p>
-                                <p class="more">詳しく見る</p>
-                            </div>
-                        </article>
-                        <article>
-                            <div class="news_item">
-                                <div class="news_img">
-                                    <img src="/img/product_top.jpg" alt="">
-                                </div>
-                                <p class="news_date">2020/03/04</p>
-                                <h1 class="news_title">美味しいパンケーキ</h1>
-                                <p class="news_caption">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur aspernatur fugit adipisci. Eveniet necessitatibus assumenda deleniti aliquam quibusdam. Deserunt officia labore, neque voluptatibus vel unde omnis quia excepturi amet enim?</p>
-                                <p class="more">詳しく見る</p>
-                            </div>
-                        </article>
-                        <article>
-                            <div class="news_item">
-                                <div class="news_img">
-                                    <img src="/img/product_top.jpg" alt="">
-                                </div>
-                                <p class="news_date">2020/03/04</p>
-                                <h1 class="news_title">美味しいパンケーキ</h1>
-                                <p class="news_caption">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur aspernatur fugit adipisci. Eveniet necessitatibus assumenda deleniti aliquam quibusdam. Deserunt officia labore, neque voluptatibus vel unde omnis quia excepturi amet enim?</p>
-                                <p class="more">詳しく見る</p>
-                            </div>
-                        </article>
+                            </article>
+                        </template>
 
-
-
-
+                    </div>
+                    <div class="news_more_btn">
+                        <a href="#">&gt;&gt; もっと見る</a>
                     </div>
                 </div>
             </div>
@@ -106,10 +75,10 @@
                 <nav>
                     <ul class="footer_nav_items">
                         <li class="footer_nav_item"><a href="index.html">Top</a></li>
-                        <li class="footer_nav_item"><a href="#">About</a></li>
+                        <li class="footer_nav_item"><a href="about.html">About</a></li>
                         <li class="footer_nav_item"><a href="product.html">Product</a></li>
-                        <li class="footer_nav_item"><a href="#">News</a></li>
-                        <li class="footer_nav_item"><a href="#">Contact</a></li>
+                        <li class="footer_nav_item"><a href="news.html">News</a></li>
+                        <li class="footer_nav_item"><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -122,5 +91,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
     <script src="/js/main.js"> </script>
+    <script src="/js/news.js"> </script>
 </body>
 </html>

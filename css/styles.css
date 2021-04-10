@@ -48,12 +48,12 @@ a {
 }
 
 .header_nav_item {
-    margin-right: 10px;
     text-align: center;
 }
 
 .header_nav_item_link {
     position: relative;
+    margin-right: 10px;
     display: block;
     line-height: 5vh;
     height: 5vh;
@@ -61,7 +61,7 @@ a {
     font-size: 1.7vh;
     color: #ffffff;
     transition: .7s;
-    margin-left: 1px;
+    margin-left: 10px;
     animation: fade_in_header .5s forwards ease;
 }
 
@@ -89,7 +89,7 @@ a {
 
 .header_nav_item_link:hover::after {
     width: 100%;
-    transition: .5s;
+    transition: .3s;
 }
 
 .top_img {

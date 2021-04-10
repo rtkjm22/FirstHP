@@ -17,7 +17,7 @@
 
             //200pxスクロールされたときの表示
             function scroll_200(el) {
-                if (200 < window.scrollY) {
+                if (400 < window.scrollY) {
                     el.classList.add('view');
                 } else {
                     el.classList.remove('view');
