@@ -23,8 +23,6 @@
                     el.style.cursor = 'pointer';
                     el.classList.add('view');
                 } else {
-                    el.style.cursor = 'default';
-                    el.style.pointerEvents = 'none';
                     el.classList.remove('view');
                 }
             }

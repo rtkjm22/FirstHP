@@ -19,7 +19,7 @@
     justify-content: center;
     background-color: white;
     box-shadow: #00000021 2px 2px 10px;
-    animation: fade_in 1.5s forwards ease;
+    animation: fade_in 1s forwards ease;
 }
 
 @keyframes fade_in {
