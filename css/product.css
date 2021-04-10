@@ -20,7 +20,7 @@
     margin: 0 auto;
     justify-content: center;
     background-color: #ffffff;
-    animation: fade_in 1.5s forwards cubic-bezier(0.33, 0.68, 0.94, 0.81);
+    animation: fade_in 1.5s forwards ease;
 }
 
 @keyframes fade_in {
