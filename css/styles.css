@@ -34,7 +34,6 @@ a {
 
 #header {
     position: relative;
-    z-index: 1;
 }
 
 .header_nav_items {
@@ -45,6 +44,7 @@ a {
     right: 1vh;
     transition: .3s;
     /* opacity: 0; */
+    z-index:1;
 }
 
 .header_nav_item {
@@ -98,7 +98,6 @@ a {
     background-image: url(/img/product_top.jpg);
     background-size: cover;
     background-position: center;
-
 }
 
 .top_title {
