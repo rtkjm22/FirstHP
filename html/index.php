@@ -85,6 +85,41 @@
                                 <p>200円</p>
                             </div>
                         </div>
+                        <div class="top_product_item">
+                            <img src="/img/product_example.png" alt="">
+                            <div class="top_product_item_content">
+                                <p>美味しいスイーツ</p>
+                                <p>200円</p>
+                            </div>
+                        </div>
+                        <div class="top_product_item">
+                            <img src="/img/product_example.png" alt="">
+                            <div class="top_product_item_content">
+                                <p>美味しいスイーツ</p>
+                                <p>200円</p>
+                            </div>
+                        </div>
+                        <div class="top_product_item">
+                            <img src="/img/product_example.png" alt="">
+                            <div class="top_product_item_content">
+                                <p>美味しいスイーツ</p>
+                                <p>200円</p>
+                            </div>
+                        </div>
+                        <div class="top_product_item">
+                            <img src="/img/product_example.png" alt="">
+                            <div class="top_product_item_content">
+                                <p>美味しいスイーツ</p>
+                                <p>200円</p>
+                            </div>
+                        </div>
+                        <div class="top_product_item">
+                            <img src="/img/product_example.png" alt="">
+                            <div class="top_product_item_content">
+                                <p>美味しいスイーツ</p>
+                                <p>200円</p>
+                            </div>
+                        </div>
 
 
 
@@ -165,7 +200,7 @@
             <div class="footer_nav">
                 <nav>
                     <ul class="footer_nav_items">
-                        <li class="footer_nav_item"><a href="#">Top</a></li>
+                        <li class="footer_nav_item"><a href="index.html">Top</a></li>
                         <li class="footer_nav_item"><a href="about.html">About</a></li>
                         <li class="footer_nav_item"><a href="product.html">Product</a></li>
                         <li class="footer_nav_item"><a href="news.html">News</a></li>
