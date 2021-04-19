@@ -34,6 +34,7 @@ a {
 
 #header {
     position: relative;
+    z-index: 100;
 }
 
 .header_nav_items {
@@ -47,7 +48,8 @@ a {
 
 .header_nav_item {
     text-align: center;
-    z-index: 100;
+    position: relative;
+    z-index: 1;
 }
 
 .header_nav_item_link {
@@ -137,12 +139,12 @@ a {
     text-align: center;
     z-index: 999;
     color: white;
-    width: 4vw;
-    height: 4vw;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     background-color: #5a5a5aa1;
-    font-size: .7vw;
-    line-height: 4vw;
+    font-size: 1rem;
+    line-height: 75px;
     cursor: pointer;
     transition: .7s;
 }
@@ -150,8 +152,8 @@ a {
 .scroll_top:hover {
     background-color: #dcdcdcc7;
     color: #313131;
+    font-size: 1.25rem;
     transition: .7s;
-    font-size: 1vw;
 }
 
 

@@ -25,7 +25,7 @@
                                 <div class="top_header_nav_item"><a href="#">Top</a></div>
                             </li>
                             <li>
-                                <div class="top_header_nav_item"><a href="about.html">About</a></div>
+                                <div class="top_header_nav_item"><a href="/html/about.html">About</a></div>
                             </li>
                             <li>
                                 <div class="top_header_nav_item"><a href="product.html">Product</a></div>
@@ -200,7 +200,7 @@
             <div class="footer_nav">
                 <nav>
                     <ul class="footer_nav_items">
-                        <li class="footer_nav_item"><a href="index.html">Top</a></li>
+                        <li class="footer_nav_item"><a href="#">Top</a></li>
                         <li class="footer_nav_item"><a href="about.html">About</a></li>
                         <li class="footer_nav_item"><a href="product.html">Product</a></li>
                         <li class="footer_nav_item"><a href="news.html">News</a></li>
