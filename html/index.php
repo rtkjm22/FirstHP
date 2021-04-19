@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>top</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" type="text/css" href="../css/top.css">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/top.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
 </head>
@@ -22,7 +22,7 @@
                     <nav>
                         <ul class="top_header_nav_items">
                             <li>
-                                <div class="top_header_nav_item"><a href="index.html">Top</a></div>
+                                <div class="top_header_nav_item"><a href="#">Top</a></div>
                             </li>
                             <li>
                                 <div class="top_header_nav_item"><a href="about.html">About</a></div>
@@ -86,109 +86,6 @@
                             </div>
                         </div>
 
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-                        <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
 
 
 
@@ -269,7 +166,7 @@
             <div class="footer_nav">
                 <nav>
                     <ul class="footer_nav_items">
-                        <li class="footer_nav_item"><a href="index.html">Top</a></li>
+                        <li class="footer_nav_item"><a href="#">Top</a></li>
                         <li class="footer_nav_item"><a href="about.html">About</a></li>
                         <li class="footer_nav_item"><a href="product.html">Product</a></li>
                         <li class="footer_nav_item"><a href="news.html">News</a></li>
@@ -287,7 +184,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
-    <script type="text/javascript" src="/js/main.js"> </script>
-    <script type="text/javascript" src="/js/top.js"> </script>
+    <script type="text/javascript" src="../js/main.js"> </script>
+    <script type="text/javascript" src="../js/top.js"> </script>
 </body>
 </html>
