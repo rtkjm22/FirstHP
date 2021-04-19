@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>top</title>
-    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="stylesheet" type="text/css" href="/css/top.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,7 +18,7 @@
     <div class="top_container">
         <header id="top">
                 <div class="top_header_nav">
-                    <div class="top_header_logo" onclick="location.href='index.html'"></div>
+                    <div class="top_header_logo" onclick="location.href='index.php'"></div>
                     <nav>
                         <ul class="top_header_nav_items">
                             <li>
@@ -79,7 +79,7 @@
 
 
                         <div class="top_product_item">
-                            <img src="../img/product_example.png" alt="">
+                            <img src="/img/product_example.png" alt="">
                             <div class="top_product_item_content">
                                 <p>美味しいスイーツ</p>
                                 <p>200円</p>
@@ -102,7 +102,43 @@
                     <div class="top_news_items">
 
                         <div class="top_news_item">
-                            <img src="../img/product_example.png" alt="">
+                            <img src="/img/product_example.png" alt="">
+                            <div class="top_news_item_content">
+                                <h3 class="top_news_title">ブログをはじめました。</h3>
+                                <div class="top_news_text">
+                                    <p> こんにちは。美味しいスイーツを作っています。</p>
+                                    <p>旬のフルーツを使ったタルトやクリスマスなどのイベント時期限定の新作スイーツを発売しています。</p>
+                                    <p>ぜひ、よろしくおねがいします。</p>
+                                    <p>毎週水曜日に更新予定です。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top_news_item">
+                            <img src="/img/product_example.png" alt="">
+                            <div class="top_news_item_content">
+                                <h3 class="top_news_title">ブログをはじめました。</h3>
+                                <div class="top_news_text">
+                                    <p> こんにちは。美味しいスイーツを作っています。</p>
+                                    <p>旬のフルーツを使ったタルトやクリスマスなどのイベント時期限定の新作スイーツを発売しています。</p>
+                                    <p>ぜひ、よろしくおねがいします。</p>
+                                    <p>毎週水曜日に更新予定です。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top_news_item">
+                            <img src="/img/product_example.png" alt="">
+                            <div class="top_news_item_content">
+                                <h3 class="top_news_title">ブログをはじめました。</h3>
+                                <div class="top_news_text">
+                                    <p> こんにちは。美味しいスイーツを作っています。</p>
+                                    <p>旬のフルーツを使ったタルトやクリスマスなどのイベント時期限定の新作スイーツを発売しています。</p>
+                                    <p>ぜひ、よろしくおねがいします。</p>
+                                    <p>毎週水曜日に更新予定です。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top_news_item">
+                            <img src="/img/product_example.png" alt="">
                             <div class="top_news_item_content">
                                 <h3 class="top_news_title">ブログをはじめました。</h3>
                                 <div class="top_news_text">
@@ -114,44 +150,7 @@
                             </div>
                         </div>
                         
-                        <div class="top_news_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_news_item_content">
-                                <h3 class="top_news_title">ブログをはじめました。</h3>
-                                <div class="top_news_text">
-                                    <p> こんにちは。美味しいスイーツを作っています。</p>
-                                    <p>旬のフルーツを使ったタルトやクリスマスなどのイベント時期限定の新作スイーツを発売しています。</p>
-                                    <p>ぜひ、よろしくおねがいします。</p>
-                                    <p>毎週水曜日に更新予定です。</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="top_news_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_news_item_content">
-                                <h3 class="top_news_title">ブログをはじめました。</h3>
-                                <div class="top_news_text">
-                                    <p> こんにちは。美味しいスイーツを作っています。</p>
-                                    <p>旬のフルーツを使ったタルトやクリスマスなどのイベント時期限定の新作スイーツを発売しています。</p>
-                                    <p>ぜひ、よろしくおねがいします。</p>
-                                    <p>毎週水曜日に更新予定です。</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="top_news_item">
-                            <img src="../img/product_example.png" alt="">
-                            <div class="top_news_item_content">
-                                <h3 class="top_news_title">ブログをはじめました。</h3>
-                                <div class="top_news_text">
-                                    <p> こんにちは。美味しいスイーツを作っています。</p>
-                                    <p>旬のフルーツを使ったタルトやクリスマスなどのイベント時期限定の新作スイーツを発売しています。</p>
-                                    <p>ぜひ、よろしくおねがいします。</p>
-                                    <p>毎週水曜日に更新予定です。</p>
-                                </div>
-                            </div>
-                        </div>
+
                         
                     </div>
                 </div>
@@ -184,7 +183,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
-    <script type="text/javascript" src="../js/main.js"> </script>
-    <script type="text/javascript" src="../js/top.js"> </script>
+    <script type="text/javascript" src="/js/main.js"> </script>
+    <script type="text/javascript" src="/js/top.js"> </script>
 </body>
 </html>
