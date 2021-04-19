@@ -22,6 +22,5 @@
     window.addEventListener('scroll', () => {
         scroll_display();
     });
-    
-    
+
 }
