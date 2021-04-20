@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta price="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>pro_add</title>
+    <title>pro_add_done</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
@@ -20,6 +20,7 @@
         $post = sanitize($_POST);
         $pro_name = $post['name'];
         $pro_price = $post['price'];
+        $pro_gazou_name = $_POST['gazou_name'];
 
         $dsn = 'mysql:dbname=db_shop;host=localhost;charset=utf8';
         $user = 'root';
@@ -27,10 +28,11 @@
         $dbh = new PDO($dsn, $user, $password);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = 'insert into product(name, price) values (?, ?)';
+        $sql = 'insert into product(name, price, image) values (?, ?, ?)';
         $stmt = $dbh->prepare($sql);
         $data[] = $pro_name;
         $data[] = $pro_price;
+        $data[] = $pro_gazou_name;
         $stmt->execute($data);
         
         $dbh = null;

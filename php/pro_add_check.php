@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>pro_add</title>
+    <title>pro_add_check</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
@@ -18,6 +18,7 @@
     $post = sanitize($_POST);
     $pro_name = $post['name'];
     $pro_price = $post['price'];
+    $pro_gazou = $_FILES['gazou'];
     
     if ($pro_name == '') {
         echo '商品名が入力されていません。<br>';
@@ -31,7 +32,17 @@
         echo '価格 :' . $pro_price . '円 <br>';
     }
 
-    if ($pro_name == '' || preg_match('/\A[0-9]+\z/', $pro_price) == 0) {
+    if ($pro_gazou['size'] > 0) {
+        if ($pro_gazou['size'] > 1000000) {
+            echo '値が大きすぎます。';
+        } else {
+            move_uploaded_file($pro_gazou['tmp_name'],'../img/'.$pro_gazou['name']);
+            echo '<img src="../img/' . $pro_gazou['name'] . '">';
+            echo '<br>';
+        }
+    }
+
+    if ($pro_name == '' || preg_match('/\A[0-9]+\z/', $pro_price) == 0 || $pro_gazou['size'] > 1000000) {
         echo '<form>';
         echo '<input type="button" onclick="history.back()" value="戻る">';
         echo '</form>';
@@ -40,6 +51,7 @@
         echo '<form method="post" action="pro_add_done.php">';
         echo '<input type="hidden" name="name" value="' . $pro_name .'">';
         echo '<input type="hidden" name="price" value="' . $pro_price .'">';
+        echo '<input type="hidden" name="gazou_name" value="' . $pro_gazou['name'] . '">';
         echo '<br>';
         echo '<input type="button" onclick="history.back()" value="戻る">';
         echo '<input type="submit" value="ＯK">';

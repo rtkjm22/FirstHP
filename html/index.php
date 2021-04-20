@@ -70,60 +70,47 @@
 
 
 
+
             <section class="top_main_content">
                 <div class="top_product_container">
                     <h2 class="top_main_title">Product</h2>
                     <p class="top_main_intro">美味しいスイーツをたくさんそろえました。</p>
                     <div class="top_product_items">
 
+                    <?php
+                    
+                    
+                    $dsn = 'mysql:dbname=db_shop;host=localhost;charset=utf8';
+                    $user = 'root';
+                    $password = 'root';
+                    $dbh = new PDO($dsn, $user, $password);
+                    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    
+                    $sql = 'SELECT name,price,image FROM product WHERE 1';
+                    $stmt = $dbh->prepare($sql);
+                    $stmt->execute();
+                    
+                    $dbh = null;
 
+                    while (true) {
+                        $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+                        if ($rec == false) {
+                            break;
+                        }
 
+                        $str = <<< "EOM"
                         <div class="top_product_item">
-                            <img src="/img/product_example.png" alt="">
+                            <img src="../img/{$rec['image']}" alt="">
                             <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
+                                <p>{$rec['name']}</p>
+                                <p>{$rec['price']}円</p>
                             </div>
                         </div>
-                        <div class="top_product_item">
-                            <img src="/img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-                        <div class="top_product_item">
-                            <img src="/img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-                        <div class="top_product_item">
-                            <img src="/img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-                        <div class="top_product_item">
-                            <img src="/img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-                        <div class="top_product_item">
-                            <img src="/img/product_example.png" alt="">
-                            <div class="top_product_item_content">
-                                <p>美味しいスイーツ</p>
-                                <p>200円</p>
-                            </div>
-                        </div>
-
-
-
-
+                        EOM;
+                        echo $str;
+                    }
+                    
+                    ?>
 
                     </div>
                 </div>

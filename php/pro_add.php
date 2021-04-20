@@ -23,6 +23,8 @@
         価格を入力してください。<br>
         <input type="text" name="price" style="width: 50px;"><br>
 
+        画像を選んでください。<br>
+        <input type="file" name="gazou" style="width: 400px;"><br>
         <br>
 
         <input type="button" onclick="history.back()" value="戻る">

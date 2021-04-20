@@ -20,7 +20,7 @@
         $dbh = new PDO($dsn, $user, $password);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = 'SELECT id,name,price FROM product WHERE 1';
+        $sql = 'SELECT code,name,price FROM product WHERE 1';
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
         
@@ -34,8 +34,8 @@
             if ($rec === false) {
                 break;
             }
-            echo '<input type="radio" name="procode" value="' . $rec['id'] . '">';
-            echo $rec['name'] . "---";
+            echo '<input type="radio" name="procode" value="' . $rec['code'] . '">';
+            echo $rec['name'] . " --- ";
             echo $rec['price'] . '円';
             echo '<br />';
         }
