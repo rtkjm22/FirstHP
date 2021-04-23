@@ -7,7 +7,7 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     $sql = 'SELECT name,price,image FROM product WHERE 1';
-    $stmt = $dbh->prepare($sql);
+    $stmt = $dbh->query($sql);
     $stmt->execute();
     
     $dbh = null;
@@ -64,13 +64,13 @@ try {
                                 <div class="top_header_nav_item"><a href="/html/about.html">About</a></div>
                             </li>
                             <li>
-                                <div class="top_header_nav_item"><a href="product.html">Product</a></div>
+                                <div class="top_header_nav_item"><a href="/html/product.php">Product</a></div>
                             </li>
                             <li>
-                                <div class="top_header_nav_item"><a href="news.html">News</a></div>
+                                <div class="top_header_nav_item"><a href="/html/news.html">News</a></div>
                             </li>
                             <li>
-                                <div class="top_header_nav_item"><a href="contact.html">Contact</a></div>
+                                <div class="top_header_nav_item"><a href="/html/contact.html">Contact</a></div>
                             </li>
                         </ul>
                     </nav>

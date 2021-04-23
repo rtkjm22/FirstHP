@@ -4,13 +4,21 @@ require_once '../others/common.php';
 require_once '../others/db_connect.php';
 
 try {
-
+    
     $staff_code = filter_input(INPUT_POST, 'code');
     $staff_pass = filter_input(INPUT_POST, 'pass');
     
-    $post = sanitize($_POST);
-    $staff_code = $post['code'];
-    $staff_pass = $post['pass'];
+    if ($staff_code !== null && !$staff_pass !== null) {
+        $post = sanitize($_POST);
+        $staff_code = sanitize($_POST)['code'];
+        $staff_pass = sanitize($_POST)['pass'];
+        // $staff_code = $post['code'];
+        // $staff_pass = $post['pass'];
+    } else {
+        echo '不正アクセスです。<br>';
+        echo '<a href="staff_login.html" value="戻る">ログイン</a>';
+        exit();
+    }
 
     // $staff_pass = md5($staff_pass);
 
@@ -26,15 +34,17 @@ try {
     $dbh = null;
 
     $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
     if ($rec == false) {
-        echo 'スタッフコードは間違っています。<br>';
+        echo 'スタッフコードが間違っています。<br>';
         echo '<a href="staff_login.html" value="戻る">ログイン画面へ</a>';
     } else {
+        $staff_name = $rec['name'];
         session_start();
         $_SESSION['login'] = 1;
         $_SESSION['staff_code'] = $staff_code;
         $_SESSION['staff_pass'] = $staff_pass;
+        $_SESSION['staff_name'] = $staff_name;
 
         header('Location: staff_top.php');
         exit();

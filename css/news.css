@@ -35,7 +35,7 @@
     }
 }
 
-.news_item {
+#news_article {
     width: 600px;
     box-sizing: border-box;
     margin: 50px 10px;
@@ -46,8 +46,7 @@
     position: relative;
     z-index: -1;
 }
-
-.news_item:hover {
+#news_article:hover {
     box-shadow: #00000021 10px 10px 10px;
     transform: translate(-10px, -10px);
     transition: all .5s;

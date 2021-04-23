@@ -6,10 +6,8 @@
         echo '<a href="staff_login.html">ログイン画面へ戻る</a>';
         exit();
     } else {
-        echo $_SESSION['login'];
-        echo '<br>';
-        echo $_SESSION['staff_pass'] . 'さんがログイン中です。';
-        echo $_COOKIE[session_name()];
+        echo 'ようこそ！<br>';
+        echo "{$_SESSION['staff_name']}さんがログイン中です。";
     }
 
 ?>
