@@ -11,7 +11,9 @@
 
     <?php
 
-    require_once('./common.php');       
+    require_once('../others/common.php');
+    require_once '../others/db_connect.php';
+
 
     try {
     
@@ -23,10 +25,7 @@
         $pro_gazou_name_old = $post['gazou_name_old'];
         $pro_gazou_name_new = $post['gazou_name_new'];
     
-        $dsn = 'mysql:dbname=db_shop;host=localhost;charset=utf8';
-        $user = 'root';
-        $password = 'root';
-        $dbh = new PDO($dsn, $user, $password);
+        $dbh = db_connect();
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
         $sql = 'UPDATE product SET name=?, price=?, image=? WHERE code=?';
@@ -41,7 +40,7 @@
 
         if ($pro_gazou_name_old != $pro_gazou_name_new) {
             if ($pro_gazou_name_old != '') {
-                unlink('../img/' . $pro_gazou_name_old);
+                unlink('../../img/' . $pro_gazou_name_old);
             }
         }
     

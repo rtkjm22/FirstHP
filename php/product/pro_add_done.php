@@ -13,7 +13,8 @@
 
     <?php 
     
-    require_once('./common.php');
+    require_once('../others/common.php');
+    require_once '../others/db_connect.php';
 
     try {
 
@@ -22,10 +23,7 @@
         $pro_price = $post['price'];
         $pro_gazou_name = $_POST['gazou_name'];
 
-        $dsn = 'mysql:dbname=db_shop;host=localhost;charset=utf8';
-        $user = 'root';
-        $password = 'root';
-        $dbh = new PDO($dsn, $user, $password);
+        $dbh = db_connect();
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = 'insert into product(name, price, image) values (?, ?, ?)';

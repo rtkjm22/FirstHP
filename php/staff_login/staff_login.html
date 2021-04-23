@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>staff_login</title>
+</head>
+<body>
+
+    <p>スタッフログイン</p>
+    <br>
+    <form action="staff_login_check.php" method="POST">
+        <div>
+            <label for="code">スタッフコード</label><br>
+            <input type="text" name="code" id="code">
+        </div>
+        <div>
+            <label for="pass">パスワード</label><br>
+            <input type="text" name="pass" id="pass">
+        </div>
+        <br>
+        <input type="submit" value="ログイン">
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+</body>
+</html>

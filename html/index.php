@@ -1,3 +1,39 @@
+<?php
+
+require ('../php/others/db_connect.php');
+
+try {
+    $dbh = db_connect();
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    $sql = 'SELECT name,price,image FROM product WHERE 1';
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+    
+    $dbh = null;
+
+    $rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    function product_list ($i) {
+        for ($j=0; $j < count($i); $j++) { 
+            $str = <<< "EOM"
+            <div class="top_product_item">
+            <img src="../img/{$i[$j]['image']}" alt="">
+            <div class="top_product_item_content">
+            <p>{$i[$j]['name']}</p>
+            <p>{$i[$j]['price']}円</p>
+            </div>
+            </div>
+            EOM;
+            echo $str;
+        }
+    }
+
+} catch (Exception $e) {
+    echo $e->getFile(), '<br>', $e->getLine(), ':', $e->getMessage();
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -76,42 +112,7 @@
                     <h2 class="top_main_title">Product</h2>
                     <p class="top_main_intro">美味しいスイーツをたくさんそろえました。</p>
                     <div class="top_product_items">
-
-                    <?php
-                    
-                    
-                    $dsn = 'mysql:dbname=db_shop;host=localhost;charset=utf8';
-                    $user = 'root';
-                    $password = 'root';
-                    $dbh = new PDO($dsn, $user, $password);
-                    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    
-                    $sql = 'SELECT name,price,image FROM product WHERE 1';
-                    $stmt = $dbh->prepare($sql);
-                    $stmt->execute();
-                    
-                    $dbh = null;
-
-                    while (true) {
-                        $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-                        if ($rec == false) {
-                            break;
-                        }
-
-                        $str = <<< "EOM"
-                        <div class="top_product_item">
-                            <img src="../img/{$rec['image']}" alt="">
-                            <div class="top_product_item_content">
-                                <p>{$rec['name']}</p>
-                                <p>{$rec['price']}円</p>
-                            </div>
-                        </div>
-                        EOM;
-                        echo $str;
-                    }
-                    
-                    ?>
-
+                    <?= product_list($rec); ?>
                     </div>
                 </div>
             </section>
@@ -135,6 +136,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="top_news_item">
                             <img src="/img/product_example.png" alt="">
                             <div class="top_news_item_content">
@@ -147,6 +149,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="top_news_item">
                             <img src="/img/product_example.png" alt="">
                             <div class="top_news_item_content">
@@ -159,6 +162,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="top_news_item">
                             <img src="/img/product_example.png" alt="">
                             <div class="top_news_item_content">

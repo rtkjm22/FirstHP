@@ -9,15 +9,13 @@
 <body>
 
     <?php
+    require_once '../others/db_connect.php';
 
     try {
     
         $pro_code = $_GET['procode'];
 
-        $dsn = 'mysql:dbname=db_shop;host=localhost;charset=utf8';
-        $user = 'root';
-        $password = 'root';
-        $dbh = new PDO($dsn, $user, $password);
+        $dbh = db_connect();
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         $sql = 'SELECT name,price,image FROM product WHERE code=?';
@@ -35,7 +33,7 @@
         if ($pro_gazou_name_old == '') {
             $disp_gazou = '';
         } else {
-            $disp_gazou = '<img src="../img/' . $pro_gazou_name_old .'">';
+            $disp_gazou = '<img src="../../img/' . $pro_gazou_name_old .'">';
         }
 
 

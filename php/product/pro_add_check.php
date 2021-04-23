@@ -13,7 +13,7 @@
 
     <?php 
     
-    require_once('./common.php');
+    require_once('../others/common.php');
 
     $post = sanitize($_POST);
     $pro_name = $post['name'];
@@ -36,8 +36,8 @@
         if ($pro_gazou['size'] > 1000000) {
             echo '値が大きすぎます。';
         } else {
-            move_uploaded_file($pro_gazou['tmp_name'],'../img/'.$pro_gazou['name']);
-            echo '<img src="../img/' . $pro_gazou['name'] . '">';
+            move_uploaded_file($pro_gazou['tmp_name'],'../../img/'.$pro_gazou['name']);
+            echo '<img src="../../img/' . $pro_gazou['name'] . '">';
             echo '<br>';
         }
     }

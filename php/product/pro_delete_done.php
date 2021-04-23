@@ -9,6 +9,7 @@
 <body>
 
     <?php
+    require_once '../others/db_connect.php';
 
     try {
     
@@ -17,10 +18,7 @@
             $pro_gazou_name = $_POST['gazou_name'];
         }
 
-        $dsn = 'mysql:dbname=db_shop;host=localhost;charset=utf8';
-        $user = 'root';
-        $password = 'root';
-        $dbh = new PDO($dsn, $user, $password);
+        $dbh = db_connect();
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = 'DELETE FROM product WHERE code=?';
@@ -31,7 +29,7 @@
         $dbh = null;
 
         if ($pro_gazou_name != '') {
-            unlink('../img/' . $pro_gazou_name);
+            unlink('../../img/' . $pro_gazou_name);
         }
     
     } catch (Exception $e) {

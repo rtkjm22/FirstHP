@@ -13,11 +13,9 @@
     <?php 
 
     try {
+        require_once '../others/db_connect.php';
 
-        $dsn = 'mysql:dbname=db_shop;host=localhost;charset=utf8';
-        $user = 'root';
-        $password = 'root';
-        $dbh = new PDO($dsn, $user, $password);
+        $dbh = db_connect();
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = 'SELECT code,name,price FROM product WHERE 1';
@@ -55,7 +53,7 @@
     
     ?>
     <br>
-    <a href="./index.php">戻る</a>
+    <a href="../../html/index.php">戻る</a>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
 </body>
