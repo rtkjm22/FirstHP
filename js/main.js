@@ -32,14 +32,6 @@
                 });
             });
 
-
-        {
-            //product
-            const test = localStorage.setItem('key', 'test');
-            const remove = localStorage.removeItem('key');
-            const item = localStorage.getItem('key');
-        }
-
     });
 }
 

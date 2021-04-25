@@ -51,35 +51,35 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/product.css">
 </head>
 <body>
 
     <div class="container">
 
         <header id="header" class="top_img">
-                <nav>
-                    <ul class="header_nav_items">
-                        <li>
-                            <div class="header_nav_item"><a class="header_nav_item_link" href="index.php">Top</a></div>
-                        </li>
-                        <li>
-                            <div class="header_nav_item"><a class="header_nav_item_link" href="about.html">About</a></div>
-                        </li>
-                        <li>
-                            <div class="header_nav_item"><a class="header_nav_item_link" href="product.html">Product</a></div>
-                        </li>
-                        <li>
-                            <div class="header_nav_item"><a class="header_nav_item_link" href="news.html">News</a></div>
-                        </li>
-                        <li>
-                            <div class="header_nav_item"><a class="header_nav_item_link" href="contact.html">Contact</a></div>
-                        </li>
-                    </ul>
-                </nav>
-                <h1 class="top_title">Product</h1>
+        <nav>
+            <ul class="header_nav_items">
+                <li>
+                    <div class="header_nav_item"><a class="header_nav_item_link" href="index.php">Top</a></div>
+                </li>
+                <li>
+                    <div class="header_nav_item"><a class="header_nav_item_link" href="about.html">About</a></div>
+                </li>
+                <li>
+                    <div class="header_nav_item"><a class="header_nav_item_link" href="product.php">Product</a></div>
+                </li>
+                <li>
+                    <div class="header_nav_item"><a class="header_nav_item_link" href="news.php">News</a></div>
+                </li>
+                <li>
+                    <div class="header_nav_item"><a class="header_nav_item_link" href="contact.php">Contact</a></div>
+                </li>
+            </ul>
+        </nav>
+            <h1 class="top_title">Product</h1>
         </header>
     
     
@@ -110,9 +110,9 @@ try {
                     <ul class="footer_nav_items">
                         <li class="footer_nav_item"><a href="index.php">Top</a></li>
                         <li class="footer_nav_item"><a href="about.html">About</a></li>
-                        <li class="footer_nav_item"><a href="product.html">Product</a></li>
-                        <li class="footer_nav_item"><a href="news.html">News</a></li>
-                        <li class="footer_nav_item"><a href="#">Contact</a></li>
+                        <li class="footer_nav_item"><a href="product.php">Product</a></li>
+                        <li class="footer_nav_item"><a href="news.php">News</a></li>
+                        <li class="footer_nav_item"><a href="contact.php">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -124,8 +124,8 @@ try {
     </div>
 
 
-    <script type="text/javascript" src="/js/main.js"> </script>
-    <script type="text/javascript" src="/js/product.js"> </script>
+    <script type="text/javascript" src="../js/main.js"> </script>
+    <script type="text/javascript" src="../js/product.js"> </script>
 </body>
 </html>
 

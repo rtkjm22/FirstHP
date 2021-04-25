@@ -41,8 +41,8 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>top</title>
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="/css/top.css">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../css/top.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
 </head>
@@ -58,19 +58,19 @@ try {
                     <nav>
                         <ul class="top_header_nav_items">
                             <li>
-                                <div class="top_header_nav_item"><a href="#">Top</a></div>
+                                <div class="top_header_nav_item"><a href="index.php">Top</a></div>
                             </li>
                             <li>
-                                <div class="top_header_nav_item"><a href="/html/about.html">About</a></div>
+                                <div class="top_header_nav_item"><a href="about.html">About</a></div>
                             </li>
                             <li>
-                                <div class="top_header_nav_item"><a href="/html/product.php">Product</a></div>
+                                <div class="top_header_nav_item"><a href="product.php">Product</a></div>
                             </li>
                             <li>
-                                <div class="top_header_nav_item"><a href="/html/news.html">News</a></div>
+                                <div class="top_header_nav_item"><a href="news.php">News</a></div>
                             </li>
                             <li>
-                                <div class="top_header_nav_item"><a href="/html/contact.html">Contact</a></div>
+                                <div class="top_header_nav_item"><a href="contact.php">Contact</a></div>
                             </li>
                         </ul>
                     </nav>
@@ -191,11 +191,11 @@ try {
             <div class="footer_nav">
                 <nav>
                     <ul class="footer_nav_items">
-                        <li class="footer_nav_item"><a href="#">Top</a></li>
+                        <li class="footer_nav_item"><a href="index.php">Top</a></li>
                         <li class="footer_nav_item"><a href="about.html">About</a></li>
-                        <li class="footer_nav_item"><a href="product.html">Product</a></li>
-                        <li class="footer_nav_item"><a href="news.html">News</a></li>
-                        <li class="footer_nav_item"><a href="contact.html">Contact</a></li>
+                        <li class="footer_nav_item"><a href="product.php">Product</a></li>
+                        <li class="footer_nav_item"><a href="news.php">News</a></li>
+                        <li class="footer_nav_item"><a href="contact.php">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -209,7 +209,7 @@ try {
 
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
-    <script type="text/javascript" src="/js/main.js"> </script>
-    <script type="text/javascript" src="/js/top.js"> </script>
+    <script type="text/javascript" src="../js/main.js"> </script>
+    <script type="text/javascript" src="../js/top.js"> </script>
 </body>
 </html>

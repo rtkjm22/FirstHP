@@ -51,11 +51,12 @@
 }
 
 {
+    //読み込まれない場合はキャッシュの削除
+
     const items = document.querySelector('.product_items');
     const item = document.querySelectorAll('.product_item');
-    const length = item.length % 5;
-    
-    
+    const empty_box_length = item.length % 5;
+
     const append_empty_box = (index) => {
         for (let i=0;i<index;i++) {
             const empty_box = document.createElement('div');
@@ -64,17 +65,19 @@
         }
     }
 
-    switch (length) {
-        case length === 1:
+
+    
+    switch (empty_box_length) {
+        case 1:
             append_empty_box(4);
             break;
-        case length === 2:
+        case 2:
             append_empty_box(3);
             break;
-        case length === 3:
+        case 3:
             append_empty_box(2);
             break;
-        case length === 4:
+        case 4:
             append_empty_box(1);
             break;
         default:

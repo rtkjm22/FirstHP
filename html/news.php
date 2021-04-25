@@ -23,13 +23,13 @@
                             <div class="header_nav_item"><a class="header_nav_item_link" href="about.html">About</a></div>
                         </li>
                         <li>
-                            <div class="header_nav_item"><a class="header_nav_item_link" href="product.html">Product</a></div>
+                            <div class="header_nav_item"><a class="header_nav_item_link" href="product.php">Product</a></div>
                         </li>
                         <li>
-                            <div class="header_nav_item"><a class="header_nav_item_link" href="news.html">News</a></div>
+                            <div class="header_nav_item"><a class="header_nav_item_link" href="news.php">News</a></div>
                         </li>
                         <li>
-                            <div class="header_nav_item"><a class="header_nav_item_link" href="contact.html">Contact</a></div>
+                            <div class="header_nav_item"><a class="header_nav_item_link" href="contact.php">Contact</a></div>
                         </li>
                     </ul>
                 </nav>
@@ -76,9 +76,9 @@
                     <ul class="footer_nav_items">
                         <li class="footer_nav_item"><a href="index.php">Top</a></li>
                         <li class="footer_nav_item"><a href="about.html">About</a></li>
-                        <li class="footer_nav_item"><a href="product.html">Product</a></li>
-                        <li class="footer_nav_item"><a href="news.html">News</a></li>
-                        <li class="footer_nav_item"><a href="contact.html">Contact</a></li>
+                        <li class="footer_nav_item"><a href="product.php">Product</a></li>
+                        <li class="footer_nav_item"><a href="news.php">News</a></li>
+                        <li class="footer_nav_item"><a href="contact.php">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -90,7 +90,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
-    <script src="/js/main.js"> </script>
-    <script src="/js/news.js"> </script>
+    <script src="../js/main.js"> </script>
+    <script src="../js/news.js"> </script>
 </body>
 </html>

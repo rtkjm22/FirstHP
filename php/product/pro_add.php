@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    session_regenerate_id(true);
+    if (isset($_SESSION['login']) === false) {
+        echo 'ログインされていません。<br>';
+        echo '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+        exit();
+    } else {
+        echo 'ようこそ！！！！<br>';
+        echo "{$_SESSION['staff_name']}さんがログイン中";
+    }
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -6,7 +18,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>pro_add</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
 <body>
@@ -34,7 +45,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
-    <script type="text/javascript" src="/js/main.js"> </script>
 </body>
 
 </html>
