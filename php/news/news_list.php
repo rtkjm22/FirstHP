@@ -30,10 +30,10 @@ try {
         {$rec['news']}
         <br />
         EOM;
-        $hoge[] = $str;
+        $contents[] = $str;
     }
 
-    function hogehoge ($i) {
+    function listup_contents ($i) {
         for ($j=0; $j < count($i); $j++) { 
             echo $i[$j];
         }
@@ -59,16 +59,16 @@ try {
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    <?php echo 'ニューストップページ<br>';?>
-    <?php echo '<from action="news_branch.php" method="post">'?>
-    <?=hogehoge($hoge);?>
+    <?php echo 'ニューストップページ<br><br>';?>
+    <?php echo '<form action="news_branch.php" method="post">'?>
+    <?=listup_contents($contents);?>
+    <?php echo '<br>';?>
     <?php echo '<input type="submit" name="disp" value="参照">';?>
     <?php echo '<input type="submit" name="add" value="追加">';?>
     <?php echo '<input type="submit" name="edit" value="修正">';?>
     <?php echo '<input type="submit" name="delete" value="削除">';?>
     <?php echo '</form>'?>
 
-    
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
     <script type="text/javascript" src="/js/main.js"> </script>

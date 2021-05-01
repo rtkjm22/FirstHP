@@ -23,7 +23,7 @@ try {
 
     $dbh = null;
 
-    $hoge = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
+    $news_title = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
 
 
 
@@ -44,7 +44,7 @@ try {
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    <p><?=$hoge?>を追加しました。</p>
+    <p><?=$news_title?>を追加しました。</p>
     <a href="news_list.php">戻る</a>
     
 

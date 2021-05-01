@@ -58,19 +58,19 @@ try {
                     <nav>
                         <ul class="top_header_nav_items">
                             <li>
-                                <div class="top_header_nav_item"><a href="index.php">Top</a></div>
+                                <div class="top_header_nav_item"><a href="/html/index.php">Top</a></div>
                             </li>
                             <li>
-                                <div class="top_header_nav_item"><a href="about.html">About</a></div>
+                                <div class="top_header_nav_item"><a href="/html/about.html">About</a></div>
                             </li>
                             <li>
-                                <div class="top_header_nav_item"><a href="product.php">Product</a></div>
+                                <div class="top_header_nav_item"><a href="/html/product.php">Product</a></div>
                             </li>
                             <li>
-                                <div class="top_header_nav_item"><a href="news.php">News</a></div>
+                                <div class="top_header_nav_item"><a href="/html/news.php">News</a></div>
                             </li>
                             <li>
-                                <div class="top_header_nav_item"><a href="contact.php">Contact</a></div>
+                                <div class="top_header_nav_item"><a href="/html/contact.php">Contact</a></div>
                             </li>
                         </ul>
                     </nav>
