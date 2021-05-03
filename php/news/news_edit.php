@@ -69,6 +69,8 @@ try {
                 <?=$news?>
             </textarea>
         </div>
+        <input type="submit" value="決定">
+        <input type="button" onclick="history.back()" value="戻る">
 
     </form>
 
