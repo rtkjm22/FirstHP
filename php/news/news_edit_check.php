@@ -18,20 +18,20 @@ try {
 
     $flag = (int) 0;
 
-    // if (preg_match('/\A[[:^cntrl:]]{1, 50}\z/u',$title) !== 1) {
-    //     echo '50文字以内でタイトルを入力してください。<br>';
-    //     $flag++;
-    // }
+    if (preg_match('/\A[[:^cntrl:]]{1,50}\z/u', $title) !== 1) {
+        echo '50文字以内でタイトルを入力してください。<br>';
+        $flag++;
+    }
 
-    // if (preg_match('/\A[[:^cntrl:]]{1, 20}\z/ui', $category) === 1) {
-    //     echo '20文字以内でカテゴリーを入力してください。<br>';
-    //     $flag++;
-    // }
+    if (preg_match('/\A[[:^cntrl:]]{1,20}\z/ui', $category) !== 1) {
+        echo '20文字以内でカテゴリーを入力してください。<br>';
+        $flag++;
+    }
 
-    // if (preg_match('/\A[\r\n\t[:^cntrl:]]{1, 400}\z/ui', $news) === 1) {
-    //     echo '400文字以内で記事を入力してください。<br>';
-    //     $flag++;
-    // }
+    if (preg_match('/\A[\r\n\t[:^cntrl:]]{1,400}\z/ui', $news) !== 1) {
+        echo '400文字以内で記事を入力してください。<br>';
+        $flag++;
+    }
 
     $vtitle = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
     $vcategory = htmlspecialchars($category, ENT_QUOTES, 'UTF-8');

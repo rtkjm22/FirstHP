@@ -7,6 +7,11 @@
         return $after;
     }
 
+    function str_sanitize($before) {
+        $after = htmlspecialchars($before, ENT_QUOTES, 'UTF-8');
+        return $after;
+    }
+
     // function date_filter($i) {
     //     $i = filter_var($i, FILTER_SANITIZE_NUMBER_INT);
     //     $i = str_replace('-', '', $i);

@@ -30,6 +30,7 @@
             <br>
         </div>
         <input type="submit" value="送信">
+        <input type="button" value="戻る" onclick="history.back()">
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
