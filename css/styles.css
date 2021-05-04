@@ -107,7 +107,7 @@ a {
     font-size: 4rem;
     top: 370px;
     left: 15vw;
-    color: rgb(37, 130, 120);
+    color: #25837a;
     animation: fade_in_header .5s forwards ease;
 }
 
