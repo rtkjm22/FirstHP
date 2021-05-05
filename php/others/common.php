@@ -1,13 +1,13 @@
 <?php
 
-    function sanitize($before) {
+    function sanitize ($before) {
         foreach ($before as $key => $value) {
             $after[$key] = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
         }
         return $after;
     }
 
-    function str_sanitize($before) {
+    function str_sanitize ($before) {
         $after = htmlspecialchars($before, ENT_QUOTES, 'UTF-8');
         return $after;
     }
@@ -43,7 +43,7 @@
         return $array;
     }
 
-    function pref_list() {
+    function pref_list () {
         $pref_list = array(
             '1'=>'北海道',
             '2'=>'青森県',
@@ -96,15 +96,25 @@
         return $pref_list;
     }
 
+    function assign_option ($i, $j) {
+        foreach ($i as $key => $value) {
+            if ($j !== '' && $key === (int)$j) {
+                echo "<option value=\"$key\" selected>$value</option><br>";
+            } else {
+                echo "<option value=\"$key\">$value</option><br>";
+            }
+        }
+    }
 
-    function assign_option ($i) {
-        foreach ($i as $key => $value) {
-            echo "<option value=\"$key\">$value</option><br>";
+    function isset_str ($str, $key) {
+        $arr = array();
+        if (isset($str)) {
+            $arr[$key] = $str;
+            return $arr[$key];
+        } else {
+            $arr[$key] = '';
+            return $arr[$key];
         }
     }
-    function list_up ($i) {
-        foreach ($i as $key => $value) {
-            echo "$key -> $value<br>";
-        }
-    }
+
 ?>

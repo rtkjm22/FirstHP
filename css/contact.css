@@ -96,10 +96,25 @@
     margin-bottom: 30px;
 }
 
+/* done *******************************************************************/
 
 
+.done_msg {
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    line-height: 3rem;
+}
 
+.done_msg:nth-of-type(1) {
+    margin-top: 150px;
+}
 
+.done_contact_btn {
+    display: block;
+    margin: 100px auto 0;
+    width: 20%;
+}
 
 
 

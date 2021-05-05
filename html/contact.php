@@ -1,7 +1,33 @@
 <?php
-
+session_start();
 
 require_once('../php/others/common.php');
+
+// $name = isset_str($_SESSION['name'], 'name');
+// $email = isset_str($_SESSION['email'], 'email');
+// $pref = isset_str($_SESSION['pref'], 'pref');
+// $message = isset_str($_SESSION['message'], 'message');
+
+if (isset($_SESSION['name'])) {
+    $name = $_SESSION['name'];
+} else {
+    $name = '';
+}
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+} else {
+    $email = '';
+}
+if (isset($_SESSION['pref'])) {
+    $pref = $_SESSION['pref'];
+} else {
+    $pref = '';
+}
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+} else {
+    $message = '';
+}
 
 $pref_list = pref_list();
 
@@ -61,21 +87,21 @@ $pref_list = pref_list();
                     <form action="contact/contact_check.php" method="POST">
                         <div class="contact_form_item">
                             <label for="name">お名前</label><br>
-                            <input type="text" id="name" name="name" placeholder="お名前">
+                            <input type="text" id="name" name="name" placeholder="お名前" value="<?=$name?>">
                         </div>
                         <div class="contact_form_item">
                             <label for="email">Eメールアドレス</label><br>
-                            <input type="email" id="email" name="email" placeholder="Eメールアドレス">
+                            <input type="email" id="email" name="email" placeholder="Eメールアドレス" value="<?=$email?>">
                         </div>
                         <div class="contact_form_item">
                             <label for="pref">都道府県</label><br>
                             <select name="pref" id="pref">
-                                <?=assign_option($pref_list)?>
+                                <?=assign_option($pref_list, $pref)?>
                             </select>
                         </div>
                         <div class="contact_form_item">
                             <label for="message">お問い合わせ内容</label><br>
-                            <textarea name="message" id="message" cols="30" rows="10" placeholder="お問い合わせ内容"></textarea>
+                            <textarea name="message" id="message" cols="30" rows="10" placeholder="お問い合わせ内容"><?=$message?></textarea>
                         </div>
                         <input class="contact_btn" type="submit" value="お問い合わせ確認画面へ">
                     </form>

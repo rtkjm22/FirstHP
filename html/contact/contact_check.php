@@ -1,14 +1,20 @@
 <?php
+session_start();
+session_regenerate_id();
 
 require_once('../../php/others/common.php');
 
 $pref_items = pref_list();
 
-
 $name = filter_input(INPUT_POST, 'name');
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $pref = filter_input(INPUT_POST, 'pref', FILTER_SANITIZE_NUMBER_INT);
 $message = filter_input(INPUT_POST, 'message');
+
+$_SESSION['name'] = $name;
+$_SESSION['email'] = $email;
+$_SESSION['pref'] = $pref;
+$_SESSION['message'] = $message;
 
 $err_msg = array();
 $result_msg = array();
@@ -55,19 +61,36 @@ if (!$message) {
 }
 
 
-function check_form_item($result, $index, $err) {
+function check_form_item($result, $index, $err, $exp) {
     if (!isset($result[$index]) || !$result[$index]) {
         $result[$index] = $err[$index];
         echo "<p class=\"check_contact_item_content\" style=\"color: red;\">$result[$index]</p>";
     } else {
-        echo "<p class=\"check_contact_item_content\">$result[$index]</p>";
+        if ($index !== $exp && $exp === '') {
+            echo "<p class=\"check_contact_item_content\">$result[$index]</p>";
+        } else {
+            $exception = nl2br($result[$index]);
+            echo "<p class=\"check_contact_item_content\" style=\"line-height: 3rem;\">" . $exception . "</p>";
+        }
     }
 }
+// function check_form_item($result, $index, $err) {
+//     if (!isset($result[$index]) || !$result[$index]) {
+//         $result[$index] = $err[$index];
+//         echo "<p class=\"check_contact_item_content\" style=\"color: red;\">$result[$index]</p>";
+//     } else {
+//         echo "<p class=\"check_contact_item_content\">$result[$index]</p>";
+//     }
+// }
+
+
 
 if ($err_msg) {
     $contact_btn = '';
 } else {
     $contact_btn = '<input type="submit" class="contact_btn" value="問い合わせをする">';
+    $token = bin2hex(random_bytes(32));
+    $_SESSION['token'] = $token;
 }
 
 ?>
@@ -130,27 +153,32 @@ if ($err_msg) {
 
                     <div class="check_contact_item">
                         <p class="check_contact_item_title">お名前：</p>
-                        <?=check_form_item($result_msg, 'name', $err_msg)?>
+                        <?=check_form_item($result_msg, 'name', $err_msg, '')?>
                     </div>
 
                     <div class="check_contact_item">
                         <p class="check_contact_item_title">Eメールアドレス：</p>
-                        <?=check_form_item($result_msg, 'email', $err_msg)?>
+                        <?=check_form_item($result_msg, 'email', $err_msg, '')?>
                     </div>
 
                     <div class="check_contact_item">
                         <p class="check_contact_item_title">都道府県：</p>
-                        <?=check_form_item($result_msg, 'pref', $err_msg)?>
+                        <?=check_form_item($result_msg, 'pref', $err_msg, '')?>
                     </div>
 
                     <div class="check_contact_item">
                         <p class="check_contact_item_title">お問い合わせ内容：</p>
-                        <?=check_form_item($result_msg, 'message', $err_msg)?>
+                        <?=check_form_item($result_msg, 'message', $err_msg, 'message')?>
                     </div>
 
                 </div>
 
                 <form action="contact_done.php" method="POST">
+                    <input type="hidden" name="token" value="<?=$token?>">
+                    <input type="hidden" name="name" value="<?=$name?>">
+                    <input type="hidden" name="email" value="<?=$email?>">
+                    <input type="hidden" name="pref" value="<?=$pref?>">
+                    <input type="hidden" name="message" value="<?=$message?>">
                     <input type="button" class="contact_btn" value="入力画面へ戻る" onclick="history.back()">
                     <?=$contact_btn?>
                 </form>
