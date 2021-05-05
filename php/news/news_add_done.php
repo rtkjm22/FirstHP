@@ -1,4 +1,13 @@
 <?php
+session_start();
+session_regenerate_id(true);
+if (isset($_SESSION['login']) === false) {
+    echo 'ログインされていません。<br>';
+    echo '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+    exit();
+} else {
+    $login_msg = "<p class=\"login_msg\">ようこそ!__<span>{$_SESSION['staff_name']}さんがログイン中</span></p><br>";
+}
 
 // require_once('../others/common.php');
 require_once('../others/db_connect.php');
@@ -44,6 +53,7 @@ try {
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
+    <?=$login_msg?>
     <p><?=$news_title?>を追加しました。</p>
     <a href="news_list.php">戻る</a>
     

@@ -6,8 +6,7 @@
         echo '<a href="staff_login.html">ログイン画面へ戻る</a>';
         exit();
     } else {
-        echo 'ようこそ！<br>';
-        echo "{$_SESSION['staff_name']}さんがログイン中です。";
+        $login_msg = "<p class=\"login_msg\">ようこそ!__<span>{$_SESSION['staff_name']}さんがログイン中</span></p><br>";
     }
 
 ?>
@@ -21,10 +20,14 @@
     <title>staff_top.php</title>
 </head>
 <body>
+    <?=$login_msg?>
 
     <h1>ショップ管理画面</h1>
 
     <a href="../product/pro_list.php">商品管理画面</a>
+    <br>
+
+    <a href="../news/news_list.php">ニュース記事管理画面</a>
     <br>
 
     <a href="staff_login.html">ログイン画面</a>

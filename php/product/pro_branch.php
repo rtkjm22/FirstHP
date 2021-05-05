@@ -5,9 +5,6 @@
         echo 'ログインされていません。<br>';
         echo '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
         exit();
-    } else {
-        echo 'ようこそ！！！！<br>';
-        echo "{$_SESSION['staff_name']}さんがログイン中";
     }
 
 

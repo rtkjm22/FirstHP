@@ -6,8 +6,7 @@
         echo '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
         exit();
     } else {
-        echo 'ようこそ！！！！<br>';
-        echo "{$_SESSION['staff_name']}さんがログイン中";
+        $login_msg = "<p class=\"login_msg\">ようこそ!__<span>{$_SESSION['staff_name']}さんがログイン中</span></p><br>";
     }
 ?>
 <!DOCTYPE html>
@@ -20,6 +19,7 @@
 </head>
 <body>
     <br>
+    <?=$login_msg?>
 
     <?php
 

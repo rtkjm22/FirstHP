@@ -6,8 +6,7 @@
         echo '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
         exit();
     } else {
-        echo 'ようこそ！！！！<br>';
-        echo "{$_SESSION['staff_name']}さんがログイン中";
+        $login_msg = "<p class=\"login_msg\">ようこそ!__<span>{$_SESSION['staff_name']}さんがログイン中</span></p><br>";
     }
 ?>
 <!DOCTYPE html>
@@ -21,6 +20,7 @@
 </head>
 
 <body>
+    <?=$login_msg?>
 
     <?php 
 
@@ -65,7 +65,8 @@
     
     ?>
     <br>
-    <a href="../../html/index.php">戻る</a>
+    <a href="../../html/index.php">TOP</a>
+    <a href="../staff_login/staff_top.php">戻る</a>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
 </body>
