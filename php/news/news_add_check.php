@@ -9,17 +9,21 @@ if (isset($_SESSION['login']) === false) {
     $login_msg = "<p class=\"login_msg\">ようこそ!__<span>{$_SESSION['staff_name']}さんがログイン中</span></p><br>";
 }
 
+define('UPLOADPATH' , '../../img');
+
 require_once('../others/common.php');
 
 $title = filter_input(INPUT_POST, 'title');
 $category = filter_input(INPUT_POST, 'category');
 $content = filter_input(INPUT_POST, 'content');
+$tempfile = $_FILES['image']['tmp_name'];
+$filename = $_FILES['image']['name'];
+
 
 
 if (count($_POST) !== 0) {
     $post = sanitize($_POST);
 }
-
 
 if (empty($title)) {
     $check_title = '商品名が入力されていません。<br>';
@@ -42,6 +46,20 @@ if (empty($content)) {
     $check_content = "content : {$content}<br>";
 }
 
+//ファイルのバリデーション
+if (!is_uploaded_file($tempfile)) {
+    exit('ファイルがアップロードされていません。');
+} 
+
+$uploaded_file = get_upload_file_name($filename, UPLOADPATH);
+$uploaded_file_name = $uploaded_file['filename'];
+
+
+if (!move_uploaded_file($tempfile, $uploaded_file_name)) {
+    exit('ファイルをアップロードできません。');
+}
+
+
 
 if (empty($title) || empty($content)) {
     $str = <<< EOM
@@ -56,6 +74,7 @@ if (empty($title) || empty($content)) {
     <input type="hidden" name="title" value="{$title}">
     <input type="hidden" name="category" value="{$category}">
     <input type="hidden" name="content" value="{$content}">
+    <input type="hidden" name="image" value="{$uploaded_file_name}">
     <input type="button" onclick="history.back()" value="戻る">
     <input type="submit" value="OK">
     </form>

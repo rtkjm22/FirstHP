@@ -24,7 +24,7 @@ if (isset($_SESSION['login']) === false) {
 
     <br>
 
-    <form action="news_add_check.php" method="post">
+    <form action="news_add_check.php" method="post" enctype="multipart/form-data">
 
         <div>
             <label for="title">タイトルを入力してください。</label><br>
@@ -37,7 +37,13 @@ if (isset($_SESSION['login']) === false) {
             <br>
         </div>
         <div>
+            <label for="image">画像を入力してください。</label><br>
+            <input type="file" name="image" id="image">
+            <br>
+        </div>
+        <div>
             <label for="content">コンテンツを入力してください。</label><br>
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
             <textarea name="content" id="content" cols="50" rows="5" placeholder="news_content"></textarea>
             <br>
         </div>

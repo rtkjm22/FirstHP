@@ -117,4 +117,36 @@
         }
     }
 
+    // ファイルアップロードにおける拡張子の判定
+    function get_upload_file_name ($tofile, $path) {
+
+        //ファイル情報を取得する
+        $info = pathinfo($tofile);
+        //拡張子(extension)情報を格納する
+        $ext = strtolower($info['extension']);
+    
+        if ($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png') {
+            $err_msg = '拡張子はjpg、jpeg、またはpngのいずれかを指定してください。';
+        }
+        $count = 0;
+        do {
+            //'%08x'は16進数(x)の乱数(mt_rand)が8文字分
+            //mt_rand関数を用いて、ユニークなファイル名にする
+            $tofile = "%s/" . date('Ymd_') . "%08x.%s";
+            $file = sprintf($tofile, $path, mt_rand(), $ext);
+            
+            //fopenはファイルを開くときに同名のファイルが存在している場合にはfalseを返すため
+            $fp = fopen($file, 'x');
+        } while ($fp === false && ++$count < 10);
+        if ($fp === false) {
+            $err_msg = 'ファイルが作成できません。';
+        }
+        fclose($fp);
+        $exp_arr['filename'] = $file;
+        if (isset($err_msg)) {
+            $exp_arr['err_msg'] = $err_msg;
+        }
+        return $exp_arr;
+    }
+
 ?>
