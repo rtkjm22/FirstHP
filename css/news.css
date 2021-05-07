@@ -53,13 +53,31 @@
     opacity: .7;
 }
 
-.news_img {
-    width: 100%;
-    margin: 0 auto;
+#news_article:hover .news_img {
+    transform: scale(1.1);
 }
 
-.news_img > img {
+.news_link {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.news_img_wrap {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.news_img {
+    width: 580px;
+    height: 580px;
+    object-fit: cover;
+    transition-duration: .5s;
 }
 
 .news_date {

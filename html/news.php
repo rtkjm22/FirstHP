@@ -1,3 +1,59 @@
+<?php
+
+define('UPLOADPATH','../img/');
+
+require_once('../php/others/common.php');
+require_once('../php/others/db_connect.php');
+
+$dbh = db_connect();
+$dbh -> setAttribute(PDO::MYSQL_ATTR_MULTI_STATEMENTS, false);
+$dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$dbh -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+$dbh -> setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+$sql = 'SELECT code,category,title,date,news,image FROM news ORDER BY code desc';
+$stmt = $dbh->prepare($sql);
+$stmt -> execute();
+$rec = $stmt->fetchAll();
+$dbh = null;
+
+
+function news_item ($i) {
+    for ($j=0; $j < count($i); $j++) { 
+        $news_items_sanitized = sanitize($i[$j]);
+        $code = $news_items_sanitized['code'];
+        $title = $news_items_sanitized['title'];
+        $category = $news_items_sanitized['category'];
+        $date = $news_items_sanitized['date'];
+        $news = $news_items_sanitized['news'];
+        $news = nl2br($news);
+        $image = $news_items_sanitized['image'];
+        $image_path = UPLOADPATH . $image;
+
+        $str = <<< "EOM"
+        <article id="news_article">
+            <a class="news_link" href="./news/news_item.php?code={$code}"></a>
+            <div class="news_item">
+                <div class="news_img_wrap">
+                    <img class="news_img" src="{$image_path}">
+                </div>
+                <p class="news_date">{$date}</p>
+                <h1 class="news_title">{$title}</h1>
+                <p class="news_category">{$category}</p>
+                <p class="news_caption">{$news}</p>
+                <p class="news_more">詳しく見る</p>
+            </div>
+        </article>
+        EOM;
+        echo $str;
+    }
+}
+// $hoge = sanitize($rec[0]);
+// var_dump($hoge);
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -46,20 +102,23 @@
                 <div class="news_wrap">
                     <div class="news_items">
 
-                        <template id="news_template">
+                        <?=news_item($rec)?>
+
+                        <!-- <template id="news_template">
                             <article id="news_article">
+                                <a class="news_link" href="./news/news_item.php?code=1"></a>
                                 <div class="news_item">
-                                    <div class="news_img">
-                                        <img class="news_img_img">
+                                    <div class="news_img_wrap">
+                                        <img class="news_img">
                                     </div>
                                     <p class="news_date"></p>
                                     <h1 class="news_title"></h1>
+                                    <p class="news_category">お菓子</p>
                                     <p class="news_caption"></p>
                                     <p class="news_more">詳しく見る</p>
                                 </div>
                             </article>
-                        </template>
-
+                        </template> -->
                     </div>
                     <div class="news_more_btn">
                         <a href="#">&gt;&gt; もっと見る</a>

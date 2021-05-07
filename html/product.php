@@ -5,7 +5,10 @@ require_once('../php/others/db_connect.php');
 try {
 
     $dbh = db_connect();
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dbh -> setAttribute(PDO::MYSQL_ATTR_MULTI_STATEMENTS, false);
+    $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dbh -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $dbh -> setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
     $sql = 'SELECT code,name,price,image FROM product WHERE 1';
     $stmt = $dbh->query($sql);
@@ -13,12 +16,11 @@ try {
 
     $dbh = null;
 
-    $rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $rec = $stmt->fetchAll();
 
     
     function product_item ($i) {
         for ($j=0; $j < count($i); $j++) { 
-            $link_index = $j + 1;
             $str = <<< "EOM"
             <div class="product_item">
                 <a class="pro_link" href="product_item.php?code={$i[$j]['code']}"></a>
@@ -34,7 +36,6 @@ try {
             echo $str;
         }
     }
-    // href="product_item.php/?code=1
 
 
 } catch (Exception $e) {
