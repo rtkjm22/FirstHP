@@ -9,25 +9,29 @@ if (isset($_SESSION['login']) === false) {
     $login_msg = "<p class=\"login_msg\">ようこそ!__<span>{$_SESSION['staff_name']}さんがログイン中</span></p><br>";
 }
 
-// require_once('../others/common.php');
+require_once('../others/common.php');
 require_once('../others/db_connect.php');
+
+
 
 try {
 
     $title = $_POST['title'];
     $content = $_POST['content'];
     $category = $_POST['category'];
+    $image = $_POST['image'];
 
     $dbh = db_connect();
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-    $sql = 'insert into news(title, category, news) values (:title, :category, :content)';
+    $sql = 'insert into news(title, category, news, image) values (:title, :category, :content, :image)';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':title', (string)$title, PDO::PARAM_STR);
     $stmt->bindValue(':category', (string)$category, PDO::PARAM_STR);
     $stmt->bindValue(':content', (string)$content, PDO::PARAM_STR);
+    $stmt->bindValue(':image', (string)$image, PDO::PARAM_STR);
     $stmt->execute();
 
     $dbh = null;

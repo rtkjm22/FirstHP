@@ -96,6 +96,14 @@
         return $pref_list;
     }
 
+    // function assign_str ($i) {
+    //     $str = '';
+    //     foreach ($i as $value) {
+    //         $str .= "<p>$value</p>";
+    //     }
+    //     return $str;
+    // }
+
     function assign_option ($i, $j) {
         foreach ($i as $key => $value) {
             if ($j !== '' && $key === (int)$j) {
@@ -126,7 +134,7 @@
         $ext = strtolower($info['extension']);
     
         if ($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png') {
-            $err_msg = '拡張子はjpg、jpeg、またはpngのいずれかを指定してください。';
+            $err_msg = '<p>拡張子はjpg、jpeg、またはpngのいずれかを指定してください。</p>';
         }
         $count = 0;
         do {
@@ -139,7 +147,7 @@
             $fp = fopen($file, 'x');
         } while ($fp === false && ++$count < 10);
         if ($fp === false) {
-            $err_msg = 'ファイルが作成できません。';
+            $err_msg = '<p>ファイルが作成できません。</p>';
         }
         fclose($fp);
         $exp_arr['filename'] = $file;
