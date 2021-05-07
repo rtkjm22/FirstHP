@@ -9,7 +9,9 @@ if (isset($_SESSION['login']) === false) {
     $login_msg = "<p class=\"login_msg\">ようこそ!__<span>{$_SESSION['staff_name']}さんがログイン中</span></p><br>";
 }
 
+
 require_once('../others/db_connect.php');
+define('UPLOADPATH', '../../img/');
 
 try {
 
@@ -18,6 +20,9 @@ try {
     $title = filter_input(INPUT_POST, 'title');
     $category = filter_input(INPUT_POST, 'category');
     $news = filter_input(INPUT_POST, 'news');
+    $old_image = filter_input(INPUT_POST, 'old_image');
+    $new_image = filter_input(INPUT_POST, 'new_image');
+
 
 
     $dbh = db_connect();
@@ -26,15 +31,21 @@ try {
     $dbh->setAttribute(PDO::MYSQL_ATTR_MULTI_STATEMENTS, false);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-    $sql = 'UPDATE news SET title=:title, category=:category, news=:news WHERE code=:code';
+    $sql = 'UPDATE news SET title=:title, category=:category, news=:news, image=:image WHERE code=:code';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':title', $title, PDO::PARAM_STR);
     $stmt->bindValue(':category', $category, PDO::PARAM_STR);
     $stmt->bindValue(':news', $news, PDO::PARAM_STR);
     $stmt->bindValue(':code', (int)$code, PDO::PARAM_INT);
+    $stmt->bindValue(':image', $new_image, PDO::PARAM_STR);
     $stmt->execute();
 
     $dbh = null;
+    echo $old_image;
+    if (isset($old_image) || $old_image !== '') {
+        $old_image_path = UPLOADPATH . $old_image;
+        unlink($old_image_path);
+    }
 
 } catch (Exception $e) {
     echo $e->getFile(), '/', $e->getLine(), ':', $e->getMessage();

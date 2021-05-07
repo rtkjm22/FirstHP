@@ -38,12 +38,12 @@ if (isset($_SESSION['login']) === false) {
         </div>
         <div>
             <label for="image">画像を入力してください。</label><br>
+            <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
             <input type="file" name="image" id="image">
             <br>
         </div>
         <div>
             <label for="content">コンテンツを入力してください。</label><br>
-            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
             <textarea name="content" id="content" cols="50" rows="5" placeholder="news_content"></textarea>
             <br>
         </div>

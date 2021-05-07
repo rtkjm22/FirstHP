@@ -12,6 +12,8 @@ if (isset($_SESSION['login']) === false) {
 require_once('../others/common.php');
 require_once('../others/db_connect.php');
 
+define('UPLOADPATH', '../../img/');
+
 
 try {
 
@@ -27,7 +29,7 @@ try {
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    $sql = 'SELECT title,category,news FROM news WHERE code=:code';
+    $sql = 'SELECT title,category,news,image FROM news WHERE code=:code';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':code', (int)$news_code, PDO::PARAM_INT);
     $stmt->execute();
@@ -39,6 +41,14 @@ try {
     $title = $rec['title'];
     $category = $rec['category'];
     $news = $rec['news'];
+    $old_image = $rec['image'];
+
+    if (!isset($old_image) || $old_image !== '') {
+        $old_image_path = UPLOADPATH . $old_image;
+        $old_image_msg = "<img src=\"$old_image_path\" style=\"width: 300px;\">";
+    } else {
+        $old_image_msg = "<p>アップロードされている画像はありません。</p>";
+    }
 
 } catch (Exception $e) {
     echo $e->getFile(), '/', $e->getLine(), ':', $e->getMessage();
@@ -52,14 +62,13 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>news_edit</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
     <?=$login_msg?>
 
     <p>ニュース修正</p>
     <br>
-    <form action="news_edit_check.php" method="POST">
+    <form action="news_edit_check.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="code" value="<?=$news_code?>">
 
         <div>
@@ -67,11 +76,15 @@ try {
             <br>
             <input type="text" name="title" id="title" value="<?=$title?>">
         </div>
+        <br>
+
         <div>
             <label for="category">カテゴリー</label>
             <br>
             <input type="text" name="category" id="category" value="<?=$category?>">
         </div>
+        <br>
+
         <div>
             <label for="news">コンテンツ</label>
             <br>
@@ -79,12 +92,26 @@ try {
                 <?=$news?>
             </textarea>
         </div>
+        <br>
+
+        <p>現在アップロードされている画像</p>
+        <?=$old_image_msg?>
+        <br>
+        <br>
+
+        <div>
+            <input type="hidden" name="old_image" value="<?=$old_image?>">
+            <label for="new_image">画像を変更したい場合は、以下のフォームにて選択してください。</label><br>
+            <input type="hidden" name="MAX_FILE_SIZE">
+            <input type="file" id="new_image" name="new_image">
+        </div>
+        <br>
+
         <input type="submit" value="決定">
         <input type="button" onclick="history.back()" value="戻る">
 
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
-    <script type="text/javascript" src="/js/main.js"> </script>
 </body>
 </html>

@@ -23,7 +23,7 @@ $filename = $_FILES['image']['name'];
 $form_msg = array();
 $form_msg['correct_msg'] = '';
 $form_msg['err_msg'] = '';
-$flag = 0;
+$flag = (int) 0;
 
 if (count($_POST) !== 0) {
     $post = sanitize($_POST);
@@ -65,11 +65,11 @@ if (!is_uploaded_file($tempfile)) {
         $flag++;
     } 
     if (!move_uploaded_file($tempfile, UPLOADPATH . $uploaded_file_name)) {
-        $form_msg['err_msg'] .= '<p>ファイルをアップロードできません。同名のファイルが存在します。</p>';
+        $form_msg['err_msg'] .= '<p>ファイルをアップロードできません。ファイル名を別名に指定してください。</p>';
         $flag++;
     } else {
         $form_msg['correct_msg'] .= "<p>画像の名前 : {$uploaded_file_name}</p>";
-        $form_msg['correct_msg'] .= "<img src=\"/../../org/$uploaded_file_name\">";
+        $form_msg['correct_msg'] .= "<img src=\"$uploaded_file_path\">";
     }
 }
 

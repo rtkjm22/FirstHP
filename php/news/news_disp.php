@@ -12,6 +12,8 @@ if (isset($_SESSION['login']) === false) {
 require_once('../others/db_connect.php');
 require_once('../others/common.php');
 
+define('UPLOADPATH', '../../img/');
+
 try {
 
     $news_code = filter_input(INPUT_GET, 'code' , FILTER_SANITIZE_NUMBER_INT);
@@ -26,7 +28,7 @@ try {
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     
-    $sql = 'SELECT title,category,news,date FROM news WHERE code=:news_code';
+    $sql = 'SELECT title,category,news,date,image FROM news WHERE code=:news_code';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':news_code', (int)$news_code, PDO::PARAM_INT);
     $stmt->execute();
@@ -42,6 +44,9 @@ try {
     $news_category = $rec['category'];
     $news_news = $rec['news'];
     $news_date = $rec['date'];
+    $news_image = $rec['image'];
+    $news_image_path = UPLOADPATH . $news_image;
+    
     
     $date = trim_date($news_date);
     
@@ -51,6 +56,8 @@ try {
     <p>カテゴリー : $news_category</p>
     <p>日付 : {$date['year']}年{$date['month']}月{$date['day']}日</p>
     <p>コンテンツ : $news_news</p>
+    <img src="$news_image_path" style="width:200px;">
+    <br>
     <a href="news_list.php">戻る</a>
     EOM;
 

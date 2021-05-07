@@ -12,6 +12,8 @@ if (isset($_SESSION['login']) === false) {
 require_once('../others/db_connect.php');
 require_once('../others/common.php');
 
+define ('UPLOADPATH', '../../img/');
+
 try {
 
     $dbh = db_connect();
@@ -20,11 +22,12 @@ try {
     $dbh->setAttribute(PDO::MYSQL_ATTR_MULTI_STATEMENTS, false);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-    $sql = 'select code,title,category,news,date from news where 1';
+    $sql = 'select code,title,category,news,date,image from news where 1';
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
     $dbh = null;
+    // code,title, date, category, news, image
 
 
     while (true) {
@@ -32,12 +35,16 @@ try {
         if ($rec === false) {
             break;
         }
+        $img_path = UPLOADPATH . $rec['image'];
         $str = <<< "EOM"
-        <input type="radio" name="code" value="{$rec['code']}">
-        {$rec['title']}/{$rec['category']}/
-        {$rec['date']}/
-        {$rec['news']}
-        <br />
+        <tr>
+            <td><input type="radio" name="code" id="{$rec['code']}" value="{$rec['code']}"></td>
+            <td>{$rec['title']}</td>
+            <td>{$rec['date']}</td>
+            <td>{$rec['category']}</td>
+            <td>{$rec['news']}</td>
+            <td><img src="{$img_path}" style="width: 200px;"></td>
+        </tr>
         EOM;
         $contents[] = $str;
     }
@@ -68,15 +75,27 @@ try {
 </head>
 <body>
     <?=$login_msg?>
-    <?php echo 'ニューストップページ<br><br>';?>
-    <?php echo '<form action="news_branch.php" method="post">'?>
-    <?=listup_contents($contents);?>
-    <?php echo '<br>';?>
-    <?php echo '<input type="submit" name="disp" value="参照">';?>
-    <?php echo '<input type="submit" name="add" value="追加">';?>
-    <?php echo '<input type="submit" name="edit" value="修正">';?>
-    <?php echo '<input type="submit" name="delete" value="削除">';?>
-    <?php echo '</form>'?>
+    <h1>ニューストップページ</h1>
+    <br>
+    <br>
+    <form action="news_branch.php" method="post">
+    <table border="1">
+        <tr>
+            <th>code</th>
+            <th>title</th>
+            <th>date</th>
+            <th>category</th>
+            <th>news</th>
+            <th>image</th>
+        </tr>
+        <?=listup_contents($contents);?>
+    </table>
+    <br>
+    <input type="submit" name="disp" value="参照">
+    <input type="submit" name="add" value="追加">
+    <input type="submit" name="edit" value="修正">
+    <input type="submit" name="delete" value="削除">
+    </form>
     <br>
     <a href="../../html/index.php">TOP</a>
     <a href="../staff_login/staff_top.php">戻る</a>
