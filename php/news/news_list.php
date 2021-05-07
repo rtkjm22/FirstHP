@@ -35,14 +35,21 @@ try {
         if ($rec === false) {
             break;
         }
+        $code = str_sanitize($rec['code']);
+        $title = str_sanitize($rec['title']);
+        $date = str_sanitize($rec['date']);
+        $category = str_sanitize($rec['category']);
+        $news = str_sanitize($rec['news']);
+        $news = nl2br($news);
         $img_path = UPLOADPATH . $rec['image'];
+        
         $str = <<< "EOM"
         <tr>
-            <td><input type="radio" name="code" id="{$rec['code']}" value="{$rec['code']}"></td>
-            <td>{$rec['title']}</td>
-            <td>{$rec['date']}</td>
-            <td>{$rec['category']}</td>
-            <td>{$rec['news']}</td>
+            <td><input type="radio" name="code" id="{$code}" value="{$code}"></td>
+            <td>{$title}</td>
+            <td>{$date}</td>
+            <td>{$category}</td>
+            <td>{$news}</td>
             <td><img src="{$img_path}" style="width: 200px;"></td>
         </tr>
         EOM;

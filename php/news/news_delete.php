@@ -9,6 +9,8 @@ if (isset($_SESSION['login']) === false) {
     $login_msg = "<p class=\"login_msg\">ようこそ!__<span>{$_SESSION['staff_name']}さんがログイン中</span></p><br>";
 }
 
+define('UPLOADPATH', '../../img/');
+
 require_once('../others/db_connect.php');
 require_once('../others/common.php');
 
@@ -28,7 +30,7 @@ try {
     $dbh->setAttribute(PDO::MYSQL_ATTR_MULTI_STATEMENTS, false);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-    $sql = 'SELECT title,category,date,news FROM news WHERE code=:code';
+    $sql = 'SELECT title,category,date,news,image FROM news WHERE code=:code';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':code', (int)$code, PDO::PARAM_INT);
     $stmt->execute();
@@ -38,6 +40,8 @@ try {
     $category = $rec['category'];
     $date = $rec['date'];
     $news = $rec['news'];
+    $image = $rec['image'];
+    $image_path = UPLOADPATH . $image;
 
     $dbh = null;
 
@@ -53,12 +57,14 @@ try {
     $str = <<< "EOM"
     <p>以下の内容を削除してよろしいですか？</p>
     <br>
-    <p>タイトル：$title</p>
+    <p>タイトル：{$title}</p>
     <p>日付：{$date['year']}年{$date['month']}月{$date['day']}日</p>
-    <p>カテゴリー：$category</p>
-    <p>ニュース：$news</p>
+    <p>カテゴリー：{$category}</p>
+    <p>ニュース：{$news}</p>
+    <img src="{$image_path}" style="width: 300px;">
+    <br>
     <form method="get" action="news_delete_done.php?code={$code}">
-    <input type="hidden" name="code" value="$code">
+    <input type="hidden" name="code" value="{$code}">
     <input type="submit" value="OK">
     <input type="button" onclick="history.back()" value="戻る">
     </form>
@@ -80,8 +86,8 @@ try {
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    <?=$login_msg?>
 
+    <?=$login_msg?>
     <?=$str?>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>

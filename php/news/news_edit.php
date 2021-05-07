@@ -88,9 +88,7 @@ try {
         <div>
             <label for="news">コンテンツ</label>
             <br>
-            <textarea name="news" id="news" cols="50" rows="5">
-                <?=$news?>
-            </textarea>
+            <textarea name="news" id="news" cols="50" rows="5"><?=$news?></textarea>
         </div>
         <br>
 

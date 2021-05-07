@@ -40,10 +40,11 @@ try {
         header('Location: news_ng.php');
         exit();
     }
-    $news_title = $rec['title'];
-    $news_category = $rec['category'];
-    $news_news = $rec['news'];
+    $news_title = str_sanitize($rec['title']);
+    $news_category = str_sanitize($rec['category']);
     $news_date = $rec['date'];
+    $news_news = str_sanitize($rec['news']);
+    $news_news = nl2br($news_news);
     $news_image = $rec['image'];
     $news_image_path = UPLOADPATH . $news_image;
     

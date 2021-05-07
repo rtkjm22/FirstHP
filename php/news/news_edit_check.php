@@ -50,6 +50,7 @@ try {
         $flag++;
     } else {
         $category = str_sanitize($category);
+        $category = nl2br($category);
         $form_msg['correct_msg'] .= "<p>タイトル : $category</p>";
     }
 
