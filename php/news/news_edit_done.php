@@ -41,7 +41,6 @@ try {
     $stmt->execute();
 
     $dbh = null;
-    echo $old_image;
     if (isset($old_image) || $old_image !== '') {
         $old_image_path = UPLOADPATH . $old_image;
         unlink($old_image_path);

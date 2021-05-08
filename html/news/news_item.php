@@ -20,6 +20,18 @@ $stmt -> execute();
 $rec = $stmt->fetch();
 $dbh = null;
 
+$code = $rec['code'];
+$category = $rec['category'];
+$title = $rec['title'];
+$date = $rec['date'];
+$image = $rec['image'];
+
+$article = str_sanitize($rec['news']);
+$article = nl2br($article);
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -27,7 +39,7 @@ $dbh = null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Document</title>
+    <title>news_item?code=<?=str_sanitize($code)?></title>
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/news_item.css">
@@ -58,15 +70,36 @@ $dbh = null;
                 </nav>
                 <h1 class="top_title">News</h1>
         </header>
+
         <div>
             <div class="scroll_top">TOP</div>
         </div>
     
-
+    <div id="news_item_wrapper">
+        <div class="tp">
+                <p>
+                <a href="../index.php">Top</a> 
+                <span>&gt;</span>
+                <a href="../news.php">News</a> 
+                <span>&gt;</span>
+                <a class="tp_current" href="#"><?=str_sanitize($title)?></a>
+                </p>
+        </div>
 
         <main>
-
+            <article class="article_wrapper">
+                <div class="caption">
+                    <h2 class="caption_title"><?=str_sanitize($title)?></h2>
+                    <p class="caption_date"><?=str_sanitize($date)?></p>
+                    <p class="caption_cat">カテゴリー : <?=str_sanitize($category)?></p>
+                </div>
+                <div class="main_article">
+                    <img src="../../img/<?=str_sanitize($image)?>" class="main_article_img">
+                    <p class="main_article_text"><?=$article?></p>
+                </div>
+            </article>
         </main>
+    </div>
     
     
     

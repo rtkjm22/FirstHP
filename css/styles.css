@@ -195,40 +195,36 @@ a {
 
 .footer_nav_item {
     position: relative;
-    background-color: #ff0808;
     font-size: 2vw;
     text-align: center;
-    /* padding: 10px 0; */
     margin: 0 10px;
     width: 14vw;
-    border-radius: 5px;
-    box-shadow: 5px 5px  20px #797979;
-    transition: .7s;
-    
+    height: 40px;
 }
 
 .footer_nav_item > a {
     position: absolute;
+    display: block;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
     color: white;
+    background-color: #434343;
+    box-shadow: 5px 5px  20px #797979;
+    border-radius: 5px;
+    line-height: 40px;
     transition: .7s;
-    background-color: greenyellow;
 }
 
-.footer_nav_item:hover {
-    background-color: #cccccc;
-    transition: .7s;
-}
+
 
 .footer_nav_item:hover a {
     color: #313131;
-    transition: .7s;
+    background-color: #dcdcdc;
+    opacity: .7;
 }
-
 .footer_copyright {
     width: 100%;
     height: 70px;

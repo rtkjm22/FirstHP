@@ -38,7 +38,7 @@ if (isset($_SESSION['login']) === false) {
         </div>
         <div>
             <label for="image">画像を入力してください。</label><br>
-            <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+            <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
             <input type="file" name="image" id="image">
             <br>
         </div>
