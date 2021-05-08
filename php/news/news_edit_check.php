@@ -37,7 +37,7 @@ try {
     $flag = (int) 0;
 
 
-    if (preg_match('/\A[[:^cntrl:]]{1,50}\z/u', $title) !== 1) {
+    if (preg_match('/\A[[:^cntrl:]]{1,50}\z/ui', $title) !== 1) {
         $form_msg['err_msg'] .=  '<p>50文字以内でタイトルを入力してください。</p>';
         $flag++;
     } else {

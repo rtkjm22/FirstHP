@@ -32,7 +32,7 @@ function news_item ($i) {
 
         $str = <<< "EOM"
         <article id="news_article">
-            <a class="news_link" href="./news/news_item.php?code={$code}"></a>
+            <a class="news_link" href="./news_item.php?code={$code}"></a>
             <div class="news_item">
                 <div class="news_img_wrap">
                     <img class="news_img" src="{$image_path}">

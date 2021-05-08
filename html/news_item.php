@@ -1,9 +1,9 @@
 <?php
 
-define('UPLOADPATH','../../img/');
+define('UPLOADPATH','../img/');
 
-require_once('../../php/others/common.php');
-require_once('../../php/others/db_connect.php');
+require_once('../php/others/common.php');
+require_once('../php/others/db_connect.php');
 
 $code = filter_input(INPUT_GET, 'code', FILTER_SANITIZE_NUMBER_INT);
 
@@ -25,6 +25,7 @@ $category = $rec['category'];
 $title = $rec['title'];
 $date = $rec['date'];
 $image = $rec['image'];
+$image_path = UPLOADPATH . $rec['image'];
 
 $article = str_sanitize($rec['news']);
 $article = nl2br($article);
@@ -40,9 +41,9 @@ $article = nl2br($article);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>news_item?code=<?=str_sanitize($code)?></title>
-    <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="stylesheet" href="../../css/news_item.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/news_item.css">
 </head>
 <body>
 
@@ -78,9 +79,9 @@ $article = nl2br($article);
     <div id="news_item_wrapper">
         <div class="tp">
                 <p>
-                <a href="../index.php">Top</a> 
+                <a href="index.php">Top</a> 
                 <span>&gt;</span>
-                <a href="../news.php">News</a> 
+                <a href="news.php">News</a> 
                 <span>&gt;</span>
                 <a class="tp_current" href="#"><?=str_sanitize($title)?></a>
                 </p>
@@ -94,7 +95,7 @@ $article = nl2br($article);
                     <p class="caption_cat">カテゴリー : <?=str_sanitize($category)?></p>
                 </div>
                 <div class="main_article">
-                    <img src="../../img/<?=str_sanitize($image)?>" class="main_article_img">
+                    <img src="<?=str_sanitize($image_path)?>" class="main_article_img">
                     <p class="main_article_text"><?=$article?></p>
                 </div>
             </article>
@@ -123,7 +124,7 @@ $article = nl2br($article);
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
-    <script src="../../js/main.js"> </script>
-    <script src="../../js/news.js"> </script>
+    <script src="../js/main.js"> </script>
+    <script src="../js/news.js"> </script>
 </body>
 </html>

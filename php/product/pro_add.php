@@ -23,7 +23,7 @@
     <?=$login_msg?>
 
 
-    <p>商品紹介</p>
+    <p>商品追加</p>
 
     <br>
 
@@ -36,6 +36,7 @@
         <input type="text" name="price" style="width: 50px;"><br>
 
         画像を選んでください。<br>
+        <input type="hidden" name="MAX_FILE_SIZE" value="1200000">
         <input type="file" name="gazou" style="width: 400px;"><br>
         <br>
 

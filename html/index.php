@@ -1,32 +1,102 @@
 <?php
 
-require ('../php/others/db_connect.php');
+require_once('../php/others/db_connect.php');
+require_once('../php/others/common.php');
+
+define('UPLOADPATH', '../img/');
 
 try {
+    //product情報の取得
     $dbh = db_connect();
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $dbh->setAttribute(PDO::MYSQL_ATTR_MULTI_STATEMENTS, false);
+    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     
-    $sql = 'SELECT name,price,image FROM product WHERE 1';
+    $sql = 'SELECT code,name,price,image FROM product WHERE 1';
     $stmt = $dbh->query($sql);
     $stmt->execute();
     
     $dbh = null;
 
-    $rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $pro_arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     function product_list ($i) {
         for ($j=0; $j < count($i); $j++) { 
+
+            $code = str_sanitize($i[$j]['code']);
+            $name = str_sanitize($i[$j]['name']);
+            $price = str_sanitize($i[$j]['price']);
+            $image = str_sanitize($i[$j]['image']);
+            $image_path = UPLOADPATH . $image;
+
             $str = <<< "EOM"
             <div class="top_product_item">
-            <img src="../img/{$i[$j]['image']}" alt="">
+            <a class="top_product_item_link" href="./product_item.php?code={$code}"></a>
+            <img src="{$image_path}" alt="">
             <div class="top_product_item_content">
-            <p>{$i[$j]['name']}</p>
-            <p>{$i[$j]['price']}円</p>
+            <p>{$name}</p>
+            <p>{$price}円</p>
             </div>
             </div>
             EOM;
             echo $str;
         }
     }
+
+} catch (Exception $e) {
+    echo $e->getFile(), '<br>', $e->getLine(), ':', $e->getMessage();
+    exit();
+}
+
+try {
+    // //news情報の取得
+    $dbh = db_connect();
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $dbh->setAttribute(PDO::MYSQL_ATTR_MULTI_STATEMENTS, false);
+    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    
+    $sql = 'SELECT code,category,title,date,news,image FROM news WHERE 1';
+    $stmt = $dbh->query($sql);
+    $stmt->execute();
+    
+    $dbh = null;
+
+    $news_arr = $stmt->fetchAll();
+
+
+    function news_list ($i) {
+        for ($j=0; $j < count($i); $j++) { 
+
+            $code = str_sanitize($i[$j]['code']);
+            $category = str_sanitize($i[$j]['category']);
+            $title = str_sanitize($i[$j]['title']);
+            $date = str_sanitize($i[$j]['date']);
+            $news = str_sanitize($i[$j]['news']);
+            $image = str_sanitize($i[$j]['image']);
+            $image_path = UPLOADPATH . $image;
+
+            $str = <<< "EOM"
+            <div class="top_news_item">
+            <a href="./news_item.php?code={$code}"></a>
+            <img src="{$image_path}" alt="">
+            <div class="top_news_item_content">
+            <h3 class="top_news_title">{$title}</h3>
+            <p>{$date}</p>
+            <p>カテゴリー : {$category}</p>
+            <div class="top_news_text">
+            <p>{$news}</p>
+            </div>
+            </div>
+            </div>
+            EOM;
+            echo $str;
+        }
+    }
+
+
+
 
 } catch (Exception $e) {
     echo $e->getFile(), '<br>', $e->getLine(), ':', $e->getMessage();
@@ -76,12 +146,6 @@ try {
                     </nav>
                 </div>
 
-            <!-- スライドショー -->
-            <!-- <div class="slide_show">
-                <img class="beforeImg" src="/img/before.jpg" alt="">
-                <img class="currentImg" src="/img/product_top.jpg" alt="">
-                <img class="afterImg" src="/img/after.jpg" alt="">
-            </div> -->
             
             <div class="top_header_cp">
                 <h1>美味しいスイーツ、作ります</h1>
@@ -112,7 +176,7 @@ try {
                     <h2 class="top_main_title">Product</h2>
                     <p class="top_main_intro">美味しいスイーツをたくさんそろえました。</p>
                     <div class="top_product_items">
-                    <?= product_list($rec); ?>
+                    <?= product_list($pro_arr)?>
                     </div>
                 </div>
             </section>
@@ -123,61 +187,7 @@ try {
                 <div class="top_news_container">
                     <h2 class="top_main_title">News</h2>
                     <div class="top_news_items">
-
-                        <div class="top_news_item">
-                            <img src="/img/product_example.png" alt="">
-                            <div class="top_news_item_content">
-                                <h3 class="top_news_title">ブログをはじめました。</h3>
-                                <div class="top_news_text">
-                                    <p> こんにちは。美味しいスイーツを作っています。</p>
-                                    <p>旬のフルーツを使ったタルトやクリスマスなどのイベント時期限定の新作スイーツを発売しています。</p>
-                                    <p>ぜひ、よろしくおねがいします。</p>
-                                    <p>毎週水曜日に更新予定です。</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="top_news_item">
-                            <img src="/img/product_example.png" alt="">
-                            <div class="top_news_item_content">
-                                <h3 class="top_news_title">ブログをはじめました。</h3>
-                                <div class="top_news_text">
-                                    <p> こんにちは。美味しいスイーツを作っています。</p>
-                                    <p>旬のフルーツを使ったタルトやクリスマスなどのイベント時期限定の新作スイーツを発売しています。</p>
-                                    <p>ぜひ、よろしくおねがいします。</p>
-                                    <p>毎週水曜日に更新予定です。</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="top_news_item">
-                            <img src="/img/product_example.png" alt="">
-                            <div class="top_news_item_content">
-                                <h3 class="top_news_title">ブログをはじめました。</h3>
-                                <div class="top_news_text">
-                                    <p> こんにちは。美味しいスイーツを作っています。</p>
-                                    <p>旬のフルーツを使ったタルトやクリスマスなどのイベント時期限定の新作スイーツを発売しています。</p>
-                                    <p>ぜひ、よろしくおねがいします。</p>
-                                    <p>毎週水曜日に更新予定です。</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="top_news_item">
-                            <img src="/img/product_example.png" alt="">
-                            <div class="top_news_item_content">
-                                <h3 class="top_news_title">ブログをはじめました。</h3>
-                                <div class="top_news_text">
-                                    <p> こんにちは。美味しいスイーツを作っています。</p>
-                                    <p>旬のフルーツを使ったタルトやクリスマスなどのイベント時期限定の新作スイーツを発売しています。</p>
-                                    <p>ぜひ、よろしくおねがいします。</p>
-                                    <p>毎週水曜日に更新予定です。</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                        
+                        <?=news_list($news_arr)?>
                     </div>
                 </div>
             </section>
