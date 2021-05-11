@@ -43,6 +43,14 @@
         return $array;
     }
 
+    function divide_hyphen ($i) {
+        //$iは2021-05-08 01:29:32などの文字列
+        
+        $str = trim_date($i);
+        $str = implode('/', $str);
+        return$str;
+    }
+
     function pref_list () {
         $pref_list = array(
             '1'=>'北海道',

@@ -74,8 +74,7 @@ try {
             $title = str_sanitize($i[$j]['title']);
 
 
-            $date = trim_date($i[$j]['date']);
-            $date = implode('/', $date);
+            $date = divide_hyphen($i[$j]['date']);
             $date = str_sanitize($date);
 
             $news = str_sanitize($i[$j]['news']);
