@@ -9,10 +9,15 @@ if (isset($_SESSION['login']) === false) {
     $login_msg = "<p class=\"login_msg\">ようこそ!__<span>{$_SESSION['staff_name']}さんがログイン中</span></p><br>";
 }
 
+
 require_once('../others/db_connect.php');
 try {
 
     $code = filter_input(INPUT_GET, 'code', FILTER_SANITIZE_NUMBER_INT);
+    $image_path = filter_input(INPUT_GET, 'image_path');
+
+    unlink($image_path);
+
     
     $dbh = db_connect();
 

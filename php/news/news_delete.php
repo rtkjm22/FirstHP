@@ -26,7 +26,6 @@ try {
 
     $dbh = db_connect();
 
-
     $sql = 'SELECT title,category,date,news,image FROM news WHERE code=:code';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':code', (int)$code, PDO::PARAM_INT);
@@ -39,6 +38,7 @@ try {
     $news = $rec['news'];
     $image = $rec['image'];
     $image_path = UPLOADPATH . $image;
+    echo $image_path;
 
     $dbh = null;
 
@@ -62,6 +62,7 @@ try {
     <br>
     <form method="get" action="news_delete_done.php?code={$code}">
     <input type="hidden" name="code" value="{$code}">
+    <input type="hidden" name="image_path" value="{$image_path}">
     <input type="submit" value="OK">
     <input type="button" onclick="history.back()" value="戻る">
     </form>

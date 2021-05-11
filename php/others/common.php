@@ -133,15 +133,14 @@
         }
     }
 
-    function isset_str ($str, $key) {
-        $arr = array();
-        if (isset($str)) {
-            $arr[$key] = $str;
-            return $arr[$key];
+
+    function check_str ($str, $key) {
+        if (isset($str[$key])) {
+            $checked_str = $str[$key];
         } else {
-            $arr[$key] = '';
-            return $arr[$key];
+            $checked_str = '';
         }
+        return $checked_str;
     }
 
     // ファイルアップロードにおける拡張子の判定
@@ -165,15 +164,21 @@
             //fopenはファイルを開くときに同名のファイルが存在している場合にはfalseを返すため
             $fp = fopen($file, 'x');
         } while ($fp === false && ++$count < 10);
+
         if ($fp === false) {
             $err_msg = '<p>ファイルが作成できません。</p>';
         }
+
         fclose($fp);
         $exp_arr['filename'] = $file;
+        
         if (isset($err_msg)) {
             $exp_arr['err_msg'] = $err_msg;
         }
         return $exp_arr;
     }
+
+
+    const UPLOADPATH = "../../img/";
 
 ?>

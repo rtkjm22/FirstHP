@@ -24,7 +24,6 @@ try {
 
     $dbh = db_connect();
 
-
     $sql = 'SELECT name FROM staff WHERE code=? AND pass=?';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(1, (int)$staff_code, PDO::PARAM_INT);

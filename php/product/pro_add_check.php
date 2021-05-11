@@ -35,7 +35,7 @@
     if ($pro_name == '') {
         echo '商品名が入力されていません。<br>';
     } else {
-        echo '商品名 :' . $pro_name . '<br>';
+        echo '商品名 :' . h($pro_name) . '<br>';
     }
 
     if (preg_match('/\A[0-9]+\z/', $pro_price) == 0) {

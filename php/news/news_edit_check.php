@@ -41,7 +41,7 @@ try {
         $form_msg['err_msg'] .=  '<p>50文字以内でタイトルを入力してください。</p>';
         $flag++;
     } else {
-        $title = str_sanitize($title);
+        $title = h($title);
         $form_msg['correct_msg'] .= "<p>タイトル : $title</p>";
     }
 

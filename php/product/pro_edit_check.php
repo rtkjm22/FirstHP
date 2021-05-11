@@ -24,7 +24,7 @@
     <?php
 
     require_once('../others/common.php');
-
+    $hoge = $_POST['name'];
     $post = sanitize($_POST);
     $pro_code = $post['code'];
     $pro_name = $post['name'];
@@ -37,7 +37,7 @@
     if ($pro_name == '') {
         echo '商品名が入力されていません。<br>';
     } else {
-        echo '商品名 : ' . $pro_name . '<br>';
+        echo '商品名 : ' . h($hoge) . '<br>';
     }
 
     if (preg_match('/\A[0-9]+\z/', $pro_price) == 0) {

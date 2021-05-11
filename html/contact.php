@@ -3,10 +3,7 @@ session_start();
 
 require_once('../php/others/common.php');
 
-// $name = isset_str($_SESSION['name'], 'name');
-// $email = isset_str($_SESSION['email'], 'email');
-// $pref = isset_str($_SESSION['pref'], 'pref');
-// $message = isset_str($_SESSION['message'], 'message');
+
 
 if (isset($_SESSION['name'])) {
     $name = $_SESSION['name'];

@@ -9,7 +9,6 @@ if (isset($_SESSION['login']) === false) {
     $login_msg = "<p class=\"login_msg\">ようこそ!__<span>{$_SESSION['staff_name']}さんがログイン中</span></p><br>";
 }
 
-define('UPLOADPATH' , '../../img/');
 
 require_once('../others/common.php');
 
@@ -25,22 +24,22 @@ $form_msg['correct_msg'] = '';
 $form_msg['err_msg'] = '';
 $flag = (int) 0;
 
-if (count($_POST) !== 0) {
-    $post = sanitize($_POST);
-}
+// if (count($_POST) !== 0) {
+//     $post = sanitize($_POST);
+// }
 
 if (empty($title)) {
     $form_msg['err_msg'] .= '<p>商品名が入力されていません。</p>';
     $flag++;
 } else {
-    $title = $post['title'];
+    $title = h($title);
     $form_msg['correct_msg'] .= "<p>商品名 : {$title}</p>";
 }
 
 if (empty($category)) {
     $form_msg['correct_msg'] .= '<p>カテゴリー : なし</p>';
 } else {
-    $category = $post['category'];
+    $category = h($category);
     $form_msg['correct_msg'] .= "<p>カテゴリー : {$category}</p>";
 }
 
@@ -48,7 +47,7 @@ if (empty($content)) {
     $form_msg['err_msg'] .= '<p>コンテンツが入力されていません。</p>';
     $flag++;
 } else {
-    $content = $post['content'];
+    $content = h($content);
     $form_msg['correct_msg'] .= "<p>content : {$content}</p>";
 }
 
