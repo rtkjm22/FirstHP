@@ -15,10 +15,7 @@ try {
     $code = filter_input(INPUT_GET, 'code', FILTER_SANITIZE_NUMBER_INT);
     
     $dbh = db_connect();
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    $dbh->setAttribute(PDO::MYSQL_ATTR_MULTI_STATEMENTS, false);
+
 
     $sql = 'DELETE FROM news WHERE code=:code';
     $stmt = $dbh->prepare($sql);

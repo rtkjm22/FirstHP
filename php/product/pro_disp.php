@@ -28,14 +28,13 @@
         $pro_code = $_GET['procode'];
 
         $dbh = db_connect();
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = 'SELECT name,price,image FROM product WHERE code=?';
         $stmt = $dbh->prepare($sql);
         $data[] = $pro_code;
         $stmt->execute($data);
         
-        $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+        $rec = $stmt->fetch();
         $pro_name = $rec['name'];
         $pro_price = $rec['price'];
         $pro_gazou_name = $rec['image'];

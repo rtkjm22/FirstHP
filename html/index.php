@@ -8,18 +8,14 @@ define('UPLOADPATH', '../img/');
 try {
     //product情報の取得
     $dbh = db_connect();
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    $dbh->setAttribute(PDO::MYSQL_ATTR_MULTI_STATEMENTS, false);
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    
+
     $sql = 'SELECT code,name,price,image FROM product WHERE 1';
     $stmt = $dbh->query($sql);
     $stmt->execute();
     
     $dbh = null;
 
-    $pro_arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $pro_arr = $stmt->fetchAll();
 
     function product_list ($i) {
         for ($j=0; $j < count($i); $j++) { 
@@ -52,11 +48,7 @@ try {
 try {
     // //news情報の取得
     $dbh = db_connect();
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    $dbh->setAttribute(PDO::MYSQL_ATTR_MULTI_STATEMENTS, false);
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    
+
     $sql = 'SELECT code,category,title,date,news,image FROM news WHERE 1';
     $stmt = $dbh->query($sql);
     $stmt->execute();

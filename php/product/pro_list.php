@@ -28,7 +28,6 @@
         require_once '../others/db_connect.php';
 
         $dbh = db_connect();
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = 'SELECT code,name,price FROM product WHERE 1';
         $stmt = $dbh->prepare($sql);
@@ -40,7 +39,7 @@
         echo '<form method="post" action="pro_branch.php">';
         
         while (true) {
-            $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+            $rec = $stmt->fetch();
             if ($rec === false) {
                 break;
             }

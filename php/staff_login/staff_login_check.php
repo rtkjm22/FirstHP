@@ -23,7 +23,7 @@ try {
     // $staff_pass = md5($staff_pass);
 
     $dbh = db_connect();
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 
     $sql = 'SELECT name FROM staff WHERE code=? AND pass=?';
     $stmt = $dbh->prepare($sql);
@@ -33,7 +33,7 @@ try {
     
     $dbh = null;
 
-    $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+    $rec = $stmt->fetch();
     
     if ($rec == false) {
         echo 'スタッフコードが間違っています。<br>';

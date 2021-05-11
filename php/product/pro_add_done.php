@@ -36,7 +36,6 @@
         $pro_gazou_name = $_POST['gazou_name'];
 
         $dbh = db_connect();
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = 'insert into product(name, price, image) values (?, ?, ?)';
         $stmt = $dbh->prepare($sql);

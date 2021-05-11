@@ -12,6 +12,17 @@
         return $after;
     }
 
+    function h ($i) {
+        $after = htmlspecialchars($i, ENT_QUOTES, 'UTF-8');
+        return $after;
+    }
+
+    function h_arr ($i) {
+        foreach ($i as $key => $value) {
+            $after[$key] = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+        }
+    }
+
     // function date_filter($i) {
     //     $i = filter_var($i, FILTER_SANITIZE_NUMBER_INT);
     //     $i = str_replace('-', '', $i);

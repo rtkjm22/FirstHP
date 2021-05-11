@@ -38,7 +38,6 @@
         $pro_gazou_name_new = $post['gazou_name_new'];
     
         $dbh = db_connect();
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
         $sql = 'UPDATE product SET name=?, price=?, image=? WHERE code=?';
         $stmt = $dbh->prepare($sql);

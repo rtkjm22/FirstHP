@@ -19,7 +19,6 @@ try {
     } 
     
     $dbh = db_connect();
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     $sql = 'SELECT name,price,image FROM product WHERE code=:code';
     $stmt = $dbh->prepare($sql);

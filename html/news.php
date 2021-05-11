@@ -6,10 +6,7 @@ require_once('../php/others/common.php');
 require_once('../php/others/db_connect.php');
 
 $dbh = db_connect();
-$dbh -> setAttribute(PDO::MYSQL_ATTR_MULTI_STATEMENTS, false);
-$dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$dbh -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-$dbh -> setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
 
 $sql = 'SELECT code,category,title,date,news,image FROM news ORDER BY code desc';
 $stmt = $dbh->prepare($sql);

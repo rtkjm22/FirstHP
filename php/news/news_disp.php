@@ -24,9 +24,7 @@ try {
     }
     
     $dbh = db_connect();
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
     
     $sql = 'SELECT title,category,news,date,image FROM news WHERE code=:news_code';
     $stmt = $dbh->prepare($sql);

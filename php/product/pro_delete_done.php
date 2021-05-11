@@ -32,7 +32,6 @@
         }
 
         $dbh = db_connect();
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = 'DELETE FROM product WHERE code=?';
         $stmt = $dbh->prepare($sql);
