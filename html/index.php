@@ -72,8 +72,15 @@ try {
             $code = str_sanitize($i[$j]['code']);
             $category = str_sanitize($i[$j]['category']);
             $title = str_sanitize($i[$j]['title']);
-            $date = str_sanitize($i[$j]['date']);
+
+
+            $date = trim_date($i[$j]['date']);
+            $date = implode('/', $date);
+            $date = str_sanitize($date);
+
             $news = str_sanitize($i[$j]['news']);
+
+
             $image = str_sanitize($i[$j]['image']);
             $image_path = UPLOADPATH . $image;
 
@@ -83,8 +90,8 @@ try {
             <img src="{$image_path}" alt="">
             <div class="top_news_item_content">
             <h3 class="top_news_title">{$title}</h3>
-            <p>{$date}</p>
-            <p>カテゴリー : {$category}</p>
+            <p class="top_news_date">{$date}</p>
+            <p class="top_news_category">カテゴリー : {$category}</p>
             <div class="top_news_text">
             <p>{$news}</p>
             </div>

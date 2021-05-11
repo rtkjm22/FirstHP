@@ -23,7 +23,11 @@ $dbh = null;
 $code = $rec['code'];
 $category = $rec['category'];
 $title = $rec['title'];
-$date = $rec['date'];
+
+$date = trim_date($rec['date']);
+$date = implode('/' ,$date);
+$date = str_sanitize($date);
+
 $image = $rec['image'];
 $image_path = UPLOADPATH . $rec['image'];
 
