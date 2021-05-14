@@ -180,5 +180,6 @@
 
 
     const UPLOADPATH = "../../img/";
+    const UPLOADPATH_ITEM = "../img/";
 
 ?>

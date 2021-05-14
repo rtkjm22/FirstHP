@@ -9,7 +9,6 @@ if (isset($_SESSION['login']) === false) {
     $login_msg = "<p class=\"login_msg\">ようこそ!__<span>{$_SESSION['staff_name']}さんがログイン中</span></p><br>";
 }
 
-define('UPLOADPATH', '../../img/');
 
 require_once('../others/db_connect.php');
 require_once('../others/common.php');

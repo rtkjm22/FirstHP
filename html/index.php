@@ -3,7 +3,6 @@
 require_once('../php/others/db_connect.php');
 require_once('../php/others/common.php');
 
-define('UPLOADPATH', '../img/');
 
 try {
     //product情報の取得
@@ -24,7 +23,7 @@ try {
             $name = str_sanitize($i[$j]['name']);
             $price = str_sanitize($i[$j]['price']);
             $image = str_sanitize($i[$j]['image']);
-            $image_path = UPLOADPATH . $image;
+            $image_path = UPLOADPATH_ITEM . $image;
 
             $str = <<< "EOM"
             <div class="top_product_item">
@@ -73,7 +72,7 @@ try {
 
 
             $image = str_sanitize($i[$j]['image']);
-            $image_path = UPLOADPATH . $image;
+            $image_path = UPLOADPATH_ITEM . $image;
 
             $str = <<< "EOM"
             <div class="top_news_item">
@@ -120,6 +119,7 @@ try {
 
 
     <div class="top_container">
+
         <header id="top">
                 <div class="top_header_nav">
                     <div class="top_header_logo" onclick="location.href='index.php'"></div>
@@ -157,6 +157,7 @@ try {
 
         <main>
 
+
             <section class="top_main_content">
                 <div class="top_about_container">
                     <h2 class="top_main_title">About</h2>
@@ -190,6 +191,7 @@ try {
                 </div>
             </section>
 
+
         </main>
 
 
@@ -199,11 +201,11 @@ try {
             <div class="footer_nav">
                 <nav>
                     <ul class="footer_nav_items">
-                        <li class="footer_nav_item"><a href="index.php">Top</a></li>
-                        <li class="footer_nav_item"><a href="about.html">About</a></li>
-                        <li class="footer_nav_item"><a href="product.php">Product</a></li>
-                        <li class="footer_nav_item"><a href="news.php">News</a></li>
-                        <li class="footer_nav_item"><a href="contact.php">Contact</a></li>
+                        <li class="footer_nav_item"><a href="/html/index.php">Top</a></li>
+                        <li class="footer_nav_item"><a href="/html/about.html">About</a></li>
+                        <li class="footer_nav_item"><a href="/html/product.php">Product</a></li>
+                        <li class="footer_nav_item"><a href="/html/news.php">News</a></li>
+                        <li class="footer_nav_item"><a href="/html/contact.php">Contact</a></li>
                     </ul>
                 </nav>
             </div>

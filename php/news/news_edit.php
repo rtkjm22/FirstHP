@@ -12,7 +12,6 @@ if (isset($_SESSION['login']) === false) {
 require_once('../others/common.php');
 require_once('../others/db_connect.php');
 
-define('UPLOADPATH', '../../img/');
 
 
 try {
